@@ -49,12 +49,13 @@
   0% {
     transform: scale(1);
     opacity: 0.5;
-    background-color: whitesmoke; /* Initial background color */
+    background-color: initial;
   }
   100% {
     transform: scale(1.2);
     opacity: 1;
-    background-color: #747070; /* Change this to your preferred color */
+    background-color: #747070;
+    color: whitesmoke;
   }
 }
 
