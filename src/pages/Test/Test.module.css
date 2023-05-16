@@ -1,0 +1,69 @@
+/* Schedule.module.css */
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.band {
+  flex: 1 0 200px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0070f3;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0051bb;
+}
+
+.scaleUp {
+  animation: scaleUp 0.5s ease-in-out;
+}
+
+/* @keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+} */
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+    background-color: whitesmoke; /* Initial background color */
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 1;
+    background-color: #747070; /* Change this to your preferred color */
+  }
+}
+
+.band {
+  transition: all 0.5s ease;
+}
+
+.band.active {
+  animation-name: scaleUp;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
