@@ -1,6 +1,7 @@
 import { createContext, useReducer } from "react";
 import TicketSelection from "../components/TicketSelection";
 import CampSelection from "../components/CampSelection";
+import Personalinfo from "../components/Personalinfo";
 
 export const FormContext = createContext();
 
@@ -75,9 +76,9 @@ export default function BookingForm() {
   const { currentStep, formData } = state;
   const totalSteps = 4;
 
-  const handleNext = () => {
-    dispatch({ type: "NEXT_STEP" });
-  };
+  //   const handleNext = () => {
+  //     dispatch({ type: "NEXT_STEP" });
+  //   };
 
   const handlePrevious = () => {
     dispatch({ type: "PREVIOUS_STEP" });
@@ -94,6 +95,8 @@ export default function BookingForm() {
         return <TicketSelection />;
       case 2:
         return <CampSelection />;
+      case 3:
+        return <Personalinfo />;
       // Add more cases for each step of the form
       default:
         return null;
