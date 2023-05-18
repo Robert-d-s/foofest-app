@@ -1,3 +1,4 @@
+import styles from "./schedule.module.css";
 import { useState, useEffect } from "react";
 
 const Schedule = () => {
@@ -20,28 +21,36 @@ const Schedule = () => {
 
   return (
     <div>
-      <button onClick={() => filterBands("mon")}>Monday</button>
-      <button onClick={() => filterBands("tue")}>Tuesday</button>
-      <button onClick={() => filterBands("wed")}>Wednesday</button>
-      <button onClick={() => filterBands("thu")}>Thursday</button>
-      <button onClick={() => filterBands("fri")}>Friday</button>
-      <button onClick={() => filterBands("sat")}>Saturday</button>
-      <button onClick={() => filterBands("sun")}>Sunday</button>
+      <div className={styles.programContainer}>
+        <h1 className={styles.header}>Programme</h1>
 
-      {Object.entries(schedule).map(([stage, days]) => (
-        <div key={stage}>
-          <h2>{stage}</h2>
-          {days[day] &&
-            days[day].map((act, index) => (
-              <div key={index}>
-                <p>
-                  {act.start} - {act.end}
-                </p>
-                <p>{act.act}</p>
-              </div>
-            ))}
+        <div className={styles.btnBox}>
+          <button onClick={() => filterBands("mon")}>Monday</button>
+          <button onClick={() => filterBands("tue")}>Tuesday</button>
+          <button onClick={() => filterBands("wed")}>Wednesday</button>
+          <button onClick={() => filterBands("thu")}>Thursday</button>
+          <button onClick={() => filterBands("fri")}>Friday</button>
+          <button onClick={() => filterBands("sat")}>Saturday</button>
+          <button onClick={() => filterBands("sun")}>Sunday</button>
         </div>
-      ))}
+
+        <div className={styles.stageBox}>
+          {Object.entries(schedule).map(([stage, days]) => (
+            <div key={stage}>
+              <h2 className={styles.subHeader}>{stage}</h2>
+              {days[day] &&
+                days[day].map((act, index) => (
+                  <div key={index} className={styles.actBox}>
+                    <p>{act.act}</p>
+                    <p>
+                      {act.start} - {act.end}
+                    </p>
+                  </div>
+                ))}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

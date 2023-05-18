@@ -1,0 +1,59 @@
+/*Programme Container Main*/
+
+.programContainer {
+  border: 1px solid hotpink;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 2rem;
+  /* background-color: var(--clr-primary-white); */
+}
+
+/*header Container*/
+.header {
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-thicc);
+  font-size: 3rem;
+  border: 1px solid yellow;
+}
+
+/*Buttons Container*/
+.btnBox {
+  text-align: center;
+  width: 100%;
+  border: 1px solid blue;
+  padding: 0.5rem 0;
+}
+
+/*Populates the Stages*/
+.stageBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.subHeader {
+  font-family: var(--font-text-secondary);
+  color: var(--clr-accent);
+  font-size: 3.157rem;
+}
+
+.actBox {
+  border: 1px solid var(--clr-hover);
+  padding: 0.7rem 0.1rem;
+}
+
+.actBox :first-child {
+  padding-bottom: 0.2rem;
+  color: lightgrey;
+  font-size: 1.25rem;
+}
+/*
+To DO:
+
+- Create a grid container
+- Apply layout to grid items
+**/
