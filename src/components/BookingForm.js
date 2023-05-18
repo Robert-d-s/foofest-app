@@ -2,6 +2,7 @@ import { createContext, useReducer } from "react";
 import TicketSelection from "../components/TicketSelection";
 import CampSelection from "../components/CampSelection";
 import Personalinfo from "../components/Personalinfo";
+import AttendeeInfo from "./AttendeeInfo";
 
 export const FormContext = createContext();
 
@@ -12,7 +13,13 @@ const initialState = {
     ticketQuantity: 1,
     campType: "",
     campSpot: "",
-    attendees: [],
+    attendees: [
+      {
+        firstName: "",
+        lastName: "",
+        email: "",
+      },
+    ],
     id: "",
   },
 };
@@ -57,12 +64,16 @@ const formReducer = (state, action) => {
           }),
         },
       };
+
     case "ADD_ATTENDEE":
       return {
         ...state,
         formData: {
           ...state.formData,
-          attendees: [...state.formData.attendees, {}],
+          attendees: [
+            ...state.formData.attendees,
+            { firstName: "", lastName: "", email: "" },
+          ],
         },
       };
 
@@ -105,7 +116,9 @@ export default function BookingForm() {
 
   return (
     <div>
-      <FormContext.Provider value={{ formData, dispatch }}>{renderFormStep()}</FormContext.Provider>
+      <FormContext.Provider value={{ formData, dispatch }}>
+        {renderFormStep()}
+      </FormContext.Provider>
       {currentStep > 1 && <button onClick={handlePrevious}>Previous</button>}
       {currentStep === totalSteps && (
         <div>
