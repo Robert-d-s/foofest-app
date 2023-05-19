@@ -108,7 +108,7 @@ export default function BookingForm() {
         return <CampSelection />;
       case 3:
         return <Personalinfo />;
-      // Add more cases for each step of the form
+
       default:
         return null;
     }
