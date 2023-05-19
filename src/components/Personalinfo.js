@@ -116,10 +116,27 @@ export default function PersonalInfo() {
     }
   }, [formData.ticketQuantity]);
 
-  const renderAttendeeForms = () => {
+  /*  const renderAttendeeForms = () => {
     return Array.from({ length: formData.ticketQuantity }, (_, index) => (
       <AttendeeInfo key={index} attendee={formData.attendees[index]} />
     ));
+  }; */
+  /*   const renderAttendeeForms = () => {
+    return formData.attendees.map((attendee, index) => (
+      <AttendeeInfo key={index} attendee={attendee} />
+    ));
+  }; */
+
+  const renderAttendeeForms = () => {
+    const attendeeForms = [];
+
+    for (let i = 0; i < formData.attendees.length; i++) {
+      attendeeForms.push(
+        <AttendeeInfo key={i} attendee={formData.attendees[i]} />
+      );
+    }
+
+    return attendeeForms;
   };
 
   return (
