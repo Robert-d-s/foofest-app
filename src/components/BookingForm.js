@@ -62,7 +62,7 @@ const formReducer = (state, action) => {
         ...state,
         formData: {
           ...state.formData,
-          attendees: [...state.formData.attendees, {}],
+          attendees: [...state.formData.attendees, { firstName: "", lasName: "", email: "" }],
         },
       };
 
