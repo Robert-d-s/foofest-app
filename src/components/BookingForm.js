@@ -34,6 +34,7 @@ const formReducer = (state, action) => {
           [action.payload.field]: action.payload.value,
         },
       };
+
     case "NEXT_STEP":
       return {
         ...state,
@@ -64,7 +65,18 @@ const formReducer = (state, action) => {
           }),
         },
       };
-
+    case "CREATE_ATTENDEE_STRUCTURE":
+      let attendees = [];
+      for (let i = 0; i < state.formData.ticketQuantity; i++) {
+        attendees.push({ firstName: "", lastName: "", email: "" });
+      }
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          attendees: attendees,
+        },
+      };
     case "ADD_ATTENDEE":
       return {
         ...state,

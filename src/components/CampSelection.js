@@ -6,6 +6,7 @@ export default function CampSelection() {
 
   const handleNext = () => {
     dispatch({ type: "NEXT_STEP" });
+    dispatch({ type: "CREATE_ATTENDEE_STRUCTURE" });
   };
 
   return (

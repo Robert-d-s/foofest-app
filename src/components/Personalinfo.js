@@ -15,20 +15,16 @@ export default function PersonalInfo() {
   const dispatchAddAttendee = () => {
     dispatch({ type: "ADD_ATTENDEE" });
   };
-  for (let i = 0; i < ticketQuantity; i++) {
+  /* for (let i = 0; i < ticketQuantity; i++) {
     dispatchAddAttendee();
-  }
+  } */
   /* -------UP UNTIL HERE-----*/
-
-  const renderAttendeeForms = () => {
-    return <AttendeeInfo />;
-  };
 
   return (
     <div>
       <h2>Personal Information</h2>
 
-      {renderAttendeeForms()}
+      <AttendeeInfo />
 
       <button onClick={handleNext}>Next</button>
     </div>
