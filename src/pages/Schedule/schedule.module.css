@@ -1,14 +1,14 @@
 /*Programme Container Main*/
 
 .programContainer {
-  border: 1px solid hotpink;
+  border: 1px solid hotpink; /*remove this later*/
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
   padding-bottom: 2rem;
-  /* background-color: var(--clr-primary-white); */
+  /* background-color: var(--clr-white); */
 }
 
 /*header Container*/
@@ -16,44 +16,70 @@
   width: 100%;
   text-align: center;
   font-family: var(--font-thicc);
-  font-size: 3rem;
-  border: 1px solid yellow;
+  font-size: 4.209rem;
+  letter-spacing: 0.2rem;
+  border: 1px solid yellow; /*remove this later*/
+  color: var(--clr-white);
 }
 
 /*Buttons Container*/
 .btnBox {
   text-align: center;
   width: 100%;
-  border: 1px solid blue;
+  border: 1px solid blue; /*remove this later*/
   padding: 0.5rem 0;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+:is(.btnBox) button {
+  padding: 0.3rem 1rem;
+  text-align: center;
+  font-family: var(--font-header-azo);
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: none;
+  transition: 0.2s all ease-in;
+}
+
+:is(.btnBox) button:hover {
+  background-color: pink; /*change this later*/
+  transform: scale(1.05);
 }
 
 /*Populates the Stages*/
 .stageBox {
   display: grid;
+  max-width: 65vw; /*Maybe this is not needed*/
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1rem;
+  color: var(--clr-white);
 }
 
+/*Stage titles*/
 .subHeader {
   font-family: var(--font-text-secondary);
-  color: var(--clr-accent);
-  font-size: 3.157rem;
+  color: var(--clr-white);
+  font-size: 2.369rem;
 }
 
 .actBox {
-  border: 1px solid var(--clr-hover);
-  padding: 0.7rem 0.1rem;
+  border: 1px solid var(--clr-hover); /*remove this later*/
+  padding: 0.5rem 0.1rem;
 }
 
-.actBox :first-child {
-  padding-bottom: 0.2rem;
-  color: lightgrey;
+/*bands and times*/
+:is(.actBox) p {
+  padding-bottom: 0.1rem;
+  color: lightgrey; /*remove this later*/
   font-size: 1.25rem;
 }
+
 /*
 To DO:
-
-- Create a grid container
-- Apply layout to grid items
+- Filter out the break times
+- Improve the mobile view (!!!)
+  - Idea mobile view: We can see the stages, when you click on a stage, it shows a dropdown with Bands and times;
 **/
