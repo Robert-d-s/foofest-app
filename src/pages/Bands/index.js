@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from "./bands.module.css";
 
 function BandList() {
   const [bands, setBands] = useState([]);

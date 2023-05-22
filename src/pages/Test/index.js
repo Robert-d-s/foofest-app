@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import styles from "./Test.module.css";
+import { useState, useEffect } from "react";
 
 export default function Schedule() {
   const [bands, setBands] = useState([]);
@@ -56,16 +56,15 @@ export default function Schedule() {
           </button>
         ))}
       </div> */}
-      <div>
-        {Object.keys(dayMapping).map((day) => (
-          <button
-            key={day}
-            onClick={() => handleDayChange(dayMapping[day])}
-            className={styles.button}
-          >
-            {day}
-          </button>
-        ))}
+      <div className={styles.programBox}>
+        <h1 className={styles.header}>Line-up</h1>
+        <div className={styles.btnBox}>
+          {Object.keys(dayMapping).map((day) => (
+            <button key={day} onClick={() => handleDayChange(dayMapping[day])} className={styles.button}>
+              {day}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className={styles.container}>
@@ -86,16 +85,9 @@ export default function Schedule() {
           );
         })} */}
         {bands.map((band) => {
-          const isPlayingToday = Object.values(schedule).some((stage) =>
-            stage[selectedDay]?.some((act) => act.act === band.name)
-          );
+          const isPlayingToday = Object.values(schedule).some((stage) => stage[selectedDay]?.some((act) => act.act === band.name));
           return (
-            <div
-              key={band.id}
-              className={`${styles.band} ${
-                isFiltered && isPlayingToday ? styles.active : ""
-              }`}
-            >
+            <div key={band.id} className={`${styles.band} ${isFiltered && isPlayingToday ? styles.active : ""}`}>
               {band.name}
             </div>
           );
