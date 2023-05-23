@@ -30,7 +30,7 @@
   /* width: 100%; */
   width: 250px;
   border: 1px solid blue; /*remove this later*/
-  padding: 0.5rem 0;
+  padding: 0.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 1rem;
