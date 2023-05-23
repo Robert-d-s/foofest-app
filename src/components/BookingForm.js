@@ -9,10 +9,8 @@ export const FormContext = createContext();
 const initialState = {
   currentStep: 1,
   formData: {
-    ticketType: "",
-    ticketQuantity: 1,
-    campType: "",
-    campSpot: "",
+    ticketData: { ticketType: "", ticketQuantity: 1 },
+    campData: { campSpot: "", goGreen: false, tentSetup: false },
     attendees: [
       {
         firstName: "",
@@ -82,10 +80,7 @@ const formReducer = (state, action) => {
         ...state,
         formData: {
           ...state.formData,
-          attendees: [
-            ...state.formData.attendees,
-            { firstName: "", lastName: "", email: "" },
-          ],
+          attendees: [...state.formData.attendees, { firstName: "", lastName: "", email: "" }],
         },
       };
 
@@ -98,10 +93,6 @@ export default function BookingForm() {
   const [state, dispatch] = useReducer(formReducer, initialState);
   const { currentStep, formData } = state;
   const totalSteps = 4;
-
-  //   const handleNext = () => {
-  //     dispatch({ type: "NEXT_STEP" });
-  //   };
 
   const handlePrevious = () => {
     dispatch({ type: "PREVIOUS_STEP" });
@@ -128,9 +119,7 @@ export default function BookingForm() {
 
   return (
     <div>
-      <FormContext.Provider value={{ formData, dispatch }}>
-        {renderFormStep()}
-      </FormContext.Provider>
+      <FormContext.Provider value={{ formData, dispatch }}>{renderFormStep()}</FormContext.Provider>
       {currentStep > 1 && <button onClick={handlePrevious}>Previous</button>}
       {currentStep === totalSteps && (
         <div>

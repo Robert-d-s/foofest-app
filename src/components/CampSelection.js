@@ -16,7 +16,7 @@ export default function CampSelection() {
         Camp Spot:
         <input
           type="text"
-          value={formData.campSpot}
+          value={formData.campData.campSpot}
           onChange={(e) =>
             dispatch({
               type: "UPDATE_FIELD",

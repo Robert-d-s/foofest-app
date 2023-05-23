@@ -15,7 +15,7 @@ export default function TicketSelection() {
         Ticket Type:
         <input
           type="text"
-          value={formData.ticketType}
+          value={formData.ticketData.ticketType}
           onChange={(e) =>
             dispatch({
               type: "UPDATE_FIELD",
@@ -28,7 +28,7 @@ export default function TicketSelection() {
         Quantity:
         <input
           type="number"
-          value={formData.ticketQuantity}
+          value={formData.ticketData.ticketQuantity}
           onChange={(e) =>
             dispatch({
               type: "UPDATE_FIELD",
