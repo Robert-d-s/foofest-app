@@ -84,15 +84,19 @@ export default function Schedule() {
             </div>
           );
         })} */}
-        {bands.map((band) => {
-          const isPlayingToday = Object.values(schedule).some((stage) => stage[selectedDay]?.some((act) => act.act === band.name));
-          return (
-            <div key={band.id} className={`${styles.band} ${isFiltered && isPlayingToday ? styles.active : ""}`}>
-              {band.name}
-            </div>
-          );
-        })}
+        <ul>
+          {bands.map((band) => {
+            const isPlayingToday = Object.values(schedule).some((stage) => stage[selectedDay]?.some((act) => act.act === band.name));
+            return (
+              <li key={band.id} className={`${styles.band} ${isFiltered && isPlayingToday ? styles.active : ""}`}>
+                {band.name}
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </div>
   );
 }
+
+/** li was div before */

@@ -38,7 +38,6 @@
 
 :is(.btnBox) button {
   padding: 0.2rem 1rem;
-  /* text-align: center; */
   justify-self: start;
   font-family: var(--font-header-azo);
   font-size: 0.8rem;
@@ -62,13 +61,12 @@
   transition: opacity 0.2s ease-in-out;
 }
 
+/*Responsive*/
 @media (max-width: 750px) {
   .programBox {
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* align-items: center;
-    justify-content: center; */
   }
 }
 
@@ -78,40 +76,58 @@
   }
 }
 
+/*commenting out the old version that has flex*/
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 2rem;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* justify-content: space-around; */
+  /* padding: 2rem; */
+  width: 100%;
   border: 1px solid hotpink;
+  background-color: white;
+}
+
+:is(.container) ul {
+  width: 75vw;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .band {
+  color: var(--clr-black);
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  font-weight: 600;
+  font-family: var(--font-text);
+  margin: 0rem 0.5rem;
+}
+
+/* .band {
   flex: 1 0 200px;
   margin: 10px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   text-align: center;
-}
-
-/* .button {
-  margin: 5px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #0070f3;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: #0051bb;
 } */
 
+.band.active {
+  padding: 0 0.3rem;
+  animation-name: scaleUp;
+  /* animation-duration: 0.5s; */
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+}
+
+/*Some small changes*/
 .scaleUp {
-  animation: scaleUp 0.5s ease-in-out;
+  /* animation: scaleUp 0.5s ease-in-out; */
+  animation: scaleUp 0.7s ease-out;
 }
 
 /* @keyframes scaleUp {
@@ -125,6 +141,7 @@
     transform: scale(1);
   }
 } */
+
 @keyframes scaleUp {
   0% {
     transform: scale(1);
@@ -134,17 +151,7 @@
   100% {
     transform: scale(1.1);
     opacity: 1;
-    background-color: #747070;
+    background-color: orange;
     color: whitesmoke;
   }
-}
-
-.band {
-  transition: all 0.5s ease;
-}
-
-.band.active {
-  animation-name: scaleUp;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
 }
