@@ -61,24 +61,6 @@
   transition: opacity 0.2s ease-in-out;
 }
 
-/*Responsive*/
-@media (max-width: 750px) {
-  .programBox {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  .band {
-    text-align: center;
-  }
-}
-
-@media (max-width: 450px) {
-  .header {
-    font-size: 3.815rem;
-  }
-}
-
 /*commenting out the old version that has flex*/
 .container {
   /* display: flex; */
@@ -90,7 +72,7 @@
   background-color: white;
 }
 
-:is(.container) ul {
+:is(.container) .bandBox {
   width: 75vw;
   list-style-type: none;
   display: flex;
@@ -156,5 +138,23 @@
     opacity: 1;
     background-color: orange;
     color: whitesmoke;
+  }
+}
+
+/*Responsive*/
+@media (max-width: 750px) {
+  .programBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .band {
+    text-align: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .header {
+    font-size: 3.815rem;
   }
 }
