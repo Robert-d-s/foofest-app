@@ -74,6 +74,10 @@
   .header {
     font-size: 3.815rem;
   }
+
+  .band {
+    text-align: center;
+  }
 }
 
 /*commenting out the old version that has flex*/
