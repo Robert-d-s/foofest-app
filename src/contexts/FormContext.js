@@ -5,10 +5,8 @@ export const DispatchContext = createContext();
 const initialState = {
   currentStep: 1,
   formData: {
-    ticketType: "",
-    ticketQuantity: 1,
-    campType: "",
-    campSpot: "",
+    ticketData: { ticketType: "regular", ticketQuantity: 1 },
+    campData: { campType: "regular", campSpot: "", tentSetup: false },
     attendees: [
       {
         firstName: "",
@@ -23,11 +21,15 @@ const initialState = {
 const formReducer = (state, action) => {
   switch (action.type) {
     case "UPDATE_FIELD":
+      const { section, field, value } = action.payload;
       return {
         ...state,
         formData: {
           ...state.formData,
-          [action.payload.field]: action.payload.value,
+          [section]: {
+            ...state.formData[section],
+            [field]: value,
+          },
         },
       };
 
@@ -40,11 +42,13 @@ const formReducer = (state, action) => {
           ...action.payload,
         },
       };
+
     case "PREVIOUS_STEP":
       return {
         ...state,
         currentStep: state.currentStep - 1,
       };
+
     case "UPDATE_ATTENDEE_FIELD":
       return {
         ...state,
@@ -61,9 +65,10 @@ const formReducer = (state, action) => {
           }),
         },
       };
+
     case "CREATE_ATTENDEE_STRUCTURE":
       let attendees = [];
-      for (let i = 0; i < state.formData.ticketQuantity; i++) {
+      for (let i = 0; i < state.formData.ticketData.ticketQuantity; i++) {
         attendees.push({ firstName: "", lastName: "", email: "" });
       }
       return {
@@ -73,6 +78,7 @@ const formReducer = (state, action) => {
           attendees: attendees,
         },
       };
+
     case "ADD_ATTENDEE":
       return {
         ...state,
