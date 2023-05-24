@@ -1,9 +1,10 @@
 import { useContext, useEffect } from "react";
-import { FormContext } from "../components/BookingForm";
+import { FormContext, DispatchContext } from "../contexts/FormContext";
 import AttendeeInfo from "./AttendeeInfo";
 
 export default function PersonalInfo() {
-  const { formData, dispatch } = useContext(FormContext);
+  const { formData } = useContext(FormContext);
+  const dispatch = useContext(DispatchContext);
 
   const handleNext = () => {
     dispatch({ type: "NEXT_STEP" });

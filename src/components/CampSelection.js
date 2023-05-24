@@ -1,8 +1,9 @@
 import { useContext } from "react";
-import { FormContext } from "../components/BookingForm";
+import { FormContext, DispatchContext } from "../contexts/FormContext";
 
 export default function CampSelection() {
-  const { formData, dispatch } = useContext(FormContext);
+  const { formData } = useContext(FormContext);
+  const dispatch = useContext(DispatchContext);
 
   const handleNext = () => {
     dispatch({ type: "NEXT_STEP" });

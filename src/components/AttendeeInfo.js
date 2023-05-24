@@ -1,8 +1,9 @@
 import { useContext } from "react";
-import { FormContext } from "../components/BookingForm";
+import { FormContext, DispatchContext } from "../contexts/FormContext";
 
 export default function AttendeeInfo() {
-  const { formData, dispatch } = useContext(FormContext);
+  const { formData } = useContext(FormContext);
+  const dispatch = useContext(DispatchContext);
   const { attendees } = formData; // Destructure the attendees array from formData
 
   const handleFieldChange = (index, field, value) => {
@@ -21,9 +22,7 @@ export default function AttendeeInfo() {
             <input
               type="text"
               value={attendee.firstName}
-              onChange={(e) =>
-                handleFieldChange(index, "firstName", e.target.value)
-              }
+              onChange={(e) => handleFieldChange(index, "firstName", e.target.value)}
             />
           </label>
 
@@ -32,9 +31,7 @@ export default function AttendeeInfo() {
             <input
               type="text"
               value={attendee.lastName}
-              onChange={(e) =>
-                handleFieldChange(index, "lastName", e.target.value)
-              }
+              onChange={(e) => handleFieldChange(index, "lastName", e.target.value)}
             />
           </label>
 
@@ -43,9 +40,7 @@ export default function AttendeeInfo() {
             <input
               type="email"
               value={attendee.email}
-              onChange={(e) =>
-                handleFieldChange(index, "email", e.target.value)
-              }
+              onChange={(e) => handleFieldChange(index, "email", e.target.value)}
             />
           </label>
         </div>
