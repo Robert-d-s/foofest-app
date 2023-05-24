@@ -97,7 +97,12 @@ export default function Schedule() {
             {selectedBand.logo && (
               <>
                 <Image
-                  src={selectedBand.logo}
+                  // src={selectedBand.logo}
+                  src={
+                    selectedBand.logo.startsWith("https")
+                      ? selectedBand.logo
+                      : `http://localhost:8080/logos/${selectedBand.logo}`
+                  }
                   alt={selectedBand.name}
                   width={500}
                   height={300}
