@@ -57,66 +57,71 @@ export default function Schedule() {
 
   return (
     <div>
-      <div>
-        {Object.keys(dayMapping).map((day) => (
-          <button
-            key={day}
-            onClick={() => handleDayChange(dayMapping[day])}
-            className={styles.button}
-          >
-            {day}
-          </button>
-        ))}
+      <div className={styles.programBox}>
+        <h1 className={styles.header}>Line-up</h1>
+        <div className={styles.btnBox}>
+          {Object.keys(dayMapping).map((day) => (
+            <button
+              key={day}
+              onClick={() => handleDayChange(dayMapping[day])}
+              className={styles.button}
+            >
+              {day}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className={styles.container}>
-        {bands.map((band) => {
-          const isPlayingToday = Object.values(schedule).some((stage) =>
-            stage[selectedDay]?.some((act) => act.act === band.name)
-          );
-          return (
-            <div
-              key={band.id}
-              className={`${styles.band} ${
-                isFiltered && isPlayingToday ? styles.active : ""
-              }`}
-              onClick={() => handleBandClick(band)}
-            >
-              {band.name}
-            </div>
-          );
-        })}
-      </div>
-
-      {isModalOpen && selectedBand && (
-        <div className={styles.modal}>
-          <div className={styles.modalContent}>
-            <h2>{selectedBand.name}</h2>
-            <p>{selectedBand.bio}</p>
-            <p>Genre: {selectedBand.genre}</p>
-            {selectedBand.logo && (
-              <>
-                <Image
-                  // src={selectedBand.logo}
-                  src={
-                    selectedBand.logo.startsWith("https")
-                      ? selectedBand.logo
-                      : `http://localhost:8080/logos/${selectedBand.logo}`
-                  }
-                  alt={selectedBand.name}
-                  width={500}
-                  height={300}
-                />
-                {/* <p>Logo credits: {selectedBand.logoCredits}</p> */}
-                {selectedBand.logoCredits && (
-                  <p>Logo credits: {selectedBand.logoCredits}</p>
-                )}
-              </>
-            )}
-            <button onClick={closeModal}>Close</button>
-          </div>
+        <div className={styles.bandBox}>
+          {bands.map((band) => {
+            const isPlayingToday = Object.values(schedule).some((stage) =>
+              stage[selectedDay]?.some((act) => act.act === band.name)
+            );
+            return (
+              <div
+                key={band.id}
+                className={`${styles.band} ${
+                  isFiltered && isPlayingToday ? styles.active : ""
+                }`}
+                onClick={() => handleBandClick(band)}
+              >
+                {band.name}
+              </div>
+            );
+          })}
         </div>
-      )}
+
+        {isModalOpen && selectedBand && (
+          <div className={styles.modal}>
+            <div className={styles.modalContent}>
+              <h2>{selectedBand.name}</h2>
+              <p>{selectedBand.bio}</p>
+              <p>Genre: {selectedBand.genre}</p>
+              {selectedBand.logo && (
+                <>
+                  <Image
+                    // src={selectedBand.logo}
+                    src={
+                      selectedBand.logo.startsWith("https")
+                        ? selectedBand.logo
+                        : `http://localhost:8080/logos/${selectedBand.logo}`
+                    }
+                    alt={selectedBand.name}
+                    width={500}
+                    height={300}
+                  />
+                  {/* <p>Logo credits: {selectedBand.logoCredits}</p> */}
+                  {selectedBand.logoCredits && (
+                    <p>Logo credits: {selectedBand.logoCredits}</p>
+                  )}
+                </>
+              )}
+              <button onClick={closeModal}>Close</button>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
