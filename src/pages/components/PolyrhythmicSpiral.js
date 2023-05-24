@@ -158,6 +158,7 @@ export default function PolyrhythmicSpiral() {
         pen.fillStyle = "#A6C48A"; // Set the text color
         pen.textAlign = "center"; // Align the text to the center
         pen.fillText("ColorFOO", center.x, center.y); // Draw the text at the center of the canvas
+        pen.fillText("Festival!", center.x, center.y + 17);
 
         requestAnimationFrame(draw);
       };
