@@ -32,14 +32,16 @@ const Schedule = () => {
         <div key={stage}>
           <h2>{stage}</h2>
           {days[day] &&
-            days[day].map((act, index) => (
-              <div key={index}>
-                <p>
-                  {act.start} - {act.end}
-                </p>
-                <p>{act.act}</p>
-              </div>
-            ))}
+            days[day]
+              .filter((act) => act.act !== "break")
+              .map((act, index) => (
+                <div key={index}>
+                  <p>
+                    {act.start} - {act.end}
+                  </p>
+                  <p>{act.act}</p>
+                </div>
+              ))}
         </div>
       ))}
     </div>
