@@ -78,7 +78,10 @@ const formReducer = (state, action) => {
         ...state,
         formData: {
           ...state.formData,
-          attendees: [...state.formData.attendees, { firstName: "", lastName: "", email: "" }],
+          attendees: [
+            ...state.formData.attendees,
+            { firstName: "", lastName: "", email: "" },
+          ],
         },
       };
 
@@ -91,7 +94,9 @@ export const FormProvider = ({ children }) => {
   const [state, dispatch] = useReducer(formReducer, initialState);
   return (
     <FormContext.Provider value={state}>
-      <DispatchContext.Provider value={dispatch}>{children}</DispatchContext.Provider>
+      <DispatchContext.Provider value={dispatch}>
+        {children}
+      </DispatchContext.Provider>
     </FormContext.Provider>
   );
 };

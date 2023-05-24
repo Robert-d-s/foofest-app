@@ -13,14 +13,31 @@ export default function TicketSelection() {
     <div>
       <h2>Ticket Choice</h2>
       <label>
-        Ticket Type:
+        VIP:
         <input
-          type="text"
-          value={formData.ticketType}
+          type="radio"
+          name="ticketType"
+          value="VIP"
+          checked={formData.ticketType === "VIP"}
           onChange={(e) =>
             dispatch({
               type: "UPDATE_FIELD",
-              payload: { field: "ticketType", value: e.target.value },
+              payload: { field: "ticketType", value: "VIP" },
+            })
+          }
+        />
+      </label>
+      <label>
+        Regular:
+        <input
+          type="radio"
+          name="ticketType"
+          value="Regular"
+          checked={formData.ticketType === "Regular"}
+          onChange={(e) =>
+            dispatch({
+              type: "UPDATE_FIELD",
+              payload: { field: "ticketType", value: "Regular" },
             })
           }
         />
@@ -33,7 +50,10 @@ export default function TicketSelection() {
           onChange={(e) =>
             dispatch({
               type: "UPDATE_FIELD",
-              payload: { field: "ticketQuantity", value: Number(e.target.value) },
+              payload: {
+                field: "ticketQuantity",
+                value: Number(e.target.value),
+              },
             })
           }
         />
