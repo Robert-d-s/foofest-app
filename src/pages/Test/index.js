@@ -107,7 +107,10 @@ export default function Schedule() {
                   width={500}
                   height={300}
                 />
-                <p>Logo credits: {selectedBand.logoCredits}</p>
+                {/* <p>Logo credits: {selectedBand.logoCredits}</p> */}
+                {selectedBand.logoCredits && (
+                  <p>Logo credits: {selectedBand.logoCredits}</p>
+                )}
               </>
             )}
             <button onClick={closeModal}>Close</button>
