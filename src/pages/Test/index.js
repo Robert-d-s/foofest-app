@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import styles from "./Test.module.css";
 
 export default function Schedule() {
@@ -7,6 +8,8 @@ export default function Schedule() {
   const [selectedDay, setSelectedDay] = useState(null);
   const [isFiltered, setIsFiltered] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [selectedBand, setSelectedBand] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchBandsAndSchedule = async () => {
@@ -29,6 +32,15 @@ export default function Schedule() {
     setIsFiltered(true);
   };
 
+  const handleBandClick = (band) => {
+    setSelectedBand(band);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -45,17 +57,6 @@ export default function Schedule() {
 
   return (
     <div>
-      {/* <div>
-        {["mon", "tue", "wed", "thu", "fri", "sat", "sun"].map((day) => (
-          <button
-            key={day}
-            onClick={() => handleDayChange(day)}
-            className={styles.button}
-          >
-            {day}
-          </button>
-        ))}
-      </div> */}
       <div>
         {Object.keys(dayMapping).map((day) => (
           <button
@@ -69,22 +70,6 @@ export default function Schedule() {
       </div>
 
       <div className={styles.container}>
-        {/* {bands.map((band) => {
-          const isPlayingToday = Object.values(schedule).some((stage) =>
-            stage[selectedDay]?.some((act) => act.act === band.name)
-          );
-          return (
-            <div
-              key={band.id}
-              style={{ opacity: isPlayingToday ? 1 : 0.5 }}
-              className={`${styles.band} ${
-                isPlayingToday && isFiltered ? styles.scaleUp : ""
-              }`}
-            >
-              {band.name}
-            </div>
-          );
-        })} */}
         {bands.map((band) => {
           const isPlayingToday = Object.values(schedule).some((stage) =>
             stage[selectedDay]?.some((act) => act.act === band.name)
@@ -95,12 +80,43 @@ export default function Schedule() {
               className={`${styles.band} ${
                 isFiltered && isPlayingToday ? styles.active : ""
               }`}
+              onClick={() => handleBandClick(band)}
             >
               {band.name}
             </div>
           );
         })}
       </div>
+
+      {isModalOpen && selectedBand && (
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            <h2>{selectedBand.name}</h2>
+            <p>{selectedBand.bio}</p>
+            <p>Genre: {selectedBand.genre}</p>
+            {selectedBand.logo && (
+              <>
+                <Image
+                  // src={selectedBand.logo}
+                  src={
+                    selectedBand.logo.startsWith("https")
+                      ? selectedBand.logo
+                      : `http://localhost:8080/logos/${selectedBand.logo}`
+                  }
+                  alt={selectedBand.name}
+                  width={500}
+                  height={300}
+                />
+                {/* <p>Logo credits: {selectedBand.logoCredits}</p> */}
+                {selectedBand.logoCredits && (
+                  <p>Logo credits: {selectedBand.logoCredits}</p>
+                )}
+              </>
+            )}
+            <button onClick={closeModal}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

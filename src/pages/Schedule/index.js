@@ -39,14 +39,16 @@ const Schedule = () => {
             <div key={stage}>
               <h2 className={styles.subHeader}>{stage}</h2>
               {days[day] &&
-                days[day].map((act, index) => (
-                  <div key={index} className={styles.actBox}>
-                    <p>{act.act}</p>
-                    <p>
-                      {act.start} - {act.end}
-                    </p>
-                  </div>
-                ))}
+                days[day]
+                  .filter((act) => act.act !== "break")
+                  .map((act, index) => (
+                    <div key={index} className={styles.actBox}>
+                      <p>{act.act}</p>
+                      <p>
+                        {act.start} - {act.end}
+                      </p>
+                    </div>
+                  ))}
             </div>
           ))}
         </div>
