@@ -1,5 +1,6 @@
 import styles from "./schedule.module.css";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const Schedule = () => {
   const [schedule, setSchedule] = useState({});
@@ -46,6 +47,17 @@ const Schedule = () => {
                       <p>{act.act}</p>
                       <p>
                         {act.start} - {act.end}
+                        {/* for cancelation - optional  */}
+                        {act.cancelled && (
+                          <Image
+                            src="/images/cancelled.png"
+                            alt="Cancelled"
+                            width={100}
+                            height={70}
+                            className={styles.cancelled}
+                          />
+                        )}
+                        {/* for cancelation - optional  */}
                       </p>
                     </div>
                   ))}
