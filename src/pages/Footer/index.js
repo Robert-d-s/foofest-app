@@ -1,12 +1,13 @@
 import styles from "./footer.module.css";
+import Image from "next/image";
 
 // Footer with infinite marquee (sponsors)
 // Trying out the sample w/o images first
 
 export default function Footer() {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.marquee}>
+    <div className={styles.marqueeWrapper}>
+      <section className={styles.marquee}>
         <div className={`${styles.marqueeContent} ${styles.scroll}`}>
           <p>one 1</p>
           <p>two 2</p>
@@ -21,7 +22,7 @@ export default function Footer() {
           <p>nine 9</p>
           <p>ten 10</p>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
