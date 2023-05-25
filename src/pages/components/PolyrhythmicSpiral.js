@@ -9,7 +9,7 @@ export default function PolyrhythmicSpiral() {
     if (paper) {
       const pen = paper.getContext("2d");
 
-      const colors = Array(22).fill("#A6C48A");
+      const colors = Array(15).fill("#A6C48A");
 
       const settings = {
         startTime: new Date().getTime(),
@@ -79,7 +79,7 @@ export default function PolyrhythmicSpiral() {
         const currentTime = new Date().getTime();
         const elapsedTime = (currentTime - settings.startTime) / 1000;
 
-        const length = Math.min(paper.width, paper.height) * 0.9;
+        const length = Math.min(paper.width, paper.height) * 2;
         const offset = (paper.width - length) / 2;
         const start = { x: offset, y: paper.height / 2 };
         const end = { x: paper.width - offset, y: paper.height / 2 };
@@ -92,9 +92,9 @@ export default function PolyrhythmicSpiral() {
           maxAngle: 2 * Math.PI,
         };
 
-        base.initialRadius = base.length * 0.05;
-        base.circleRadius = base.length * 0.006;
-        base.clearance = base.length * 0.03;
+        base.initialRadius = base.length * 0.09;
+        base.circleRadius = base.length * 0.009;
+        base.clearance = base.length * 0.01;
         base.spacing =
           (base.length - base.initialRadius - base.clearance) /
           2 /
@@ -154,7 +154,7 @@ export default function PolyrhythmicSpiral() {
 
           // Draw arcs
           pen.globalAlpha = 0.75;
-          pen.lineWidth = base.length * 0.002;
+          pen.lineWidth = base.length * 0.003;
           pen.strokeStyle = `rgb(${red}, 0, ${blue})`;
 
           const offset = (base.circleRadius * (5 / 3)) / radius;
@@ -190,11 +190,11 @@ export default function PolyrhythmicSpiral() {
         // frame++;
         frame += 0.5;
 
-        pen.font = "15px Arial"; // Set the font size and family
+        pen.font = "30px Arial"; // Set the font size and family
         pen.fillStyle = "#A6C48A"; // Set the text color
         pen.textAlign = "center"; // Align the text to the center
         pen.fillText("ColorFOO", center.x, center.y); // Draw the text at the center of the canvas
-        pen.fillText("Festival!", center.x, center.y + 17);
+        pen.fillText("Festival!", center.x, center.y + 25);
 
         requestAnimationFrame(draw);
       };
