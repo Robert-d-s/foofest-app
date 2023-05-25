@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { FormContext, DispatchContext } from "../contexts/FormContext";
+import CampCard from "./CampCard";
 
-const CampSelection = () => {
+const CampSelection = ({ spots }) => {
   const { formData } = useContext(FormContext);
   const dispatch = useContext(DispatchContext);
 
@@ -40,64 +41,14 @@ const CampSelection = () => {
       <label>
         Camp Spot:
         <div>
-          <label>
-            <input
-              type="radio"
-              name="campSpot"
-              value="Svartheim"
-              checked={formData.campData.campSpot === "Svartheim"}
-              onChange={handleCampSpotChange}
+          {spots.map((spot) => (
+            <CampCard
+              key={spot.area}
+              spot={spot}
+              formData={formData}
+              handleCampSpotChange={handleCampSpotChange}
             />
-            Svartheim
-          </label>
-        </div>
-        <div>
-          <label>
-            <input
-              type="radio"
-              name="campSpot"
-              value="Nifheim"
-              checked={formData.campData.campSpot === "Nifheim"}
-              onChange={handleCampSpotChange}
-            />
-            Nifheim
-          </label>
-        </div>
-        <div>
-          <label>
-            <input
-              type="radio"
-              name="campSpot"
-              value="Helheim"
-              checked={formData.campData.campSpot === "Helheim"}
-              onChange={handleCampSpotChange}
-            />
-            Helheim
-          </label>
-        </div>
-        <div>
-          <label>
-            <input
-              type="radio"
-              name="campSpot"
-              value="Muspelheim"
-              checked={formData.campData.campSpot === "Muspelheim"}
-              onChange={handleCampSpotChange}
-            />
-            Muspelheim
-          </label>
-        </div>
-        <div>
-          <label>
-            <input
-              type="radio"
-              name="campSpot"
-              value="Alfheim"
-              checked={formData.campData.campSpot === "Alfheim"}
-              onChange={handleCampSpotChange}
-            />
-            Alfheim
-          </label>
+          ))}
         </div>
       </label>
       <label>

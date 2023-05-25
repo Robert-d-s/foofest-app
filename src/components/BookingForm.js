@@ -5,7 +5,7 @@ import CampSelection from "../components/CampSelection";
 import Personalinfo from "../components/Personalinfo";
 import AttendeeInfo from "./AttendeeInfo";
 
-export default function BookingForm() {
+export default function BookingForm({ spots }) {
   const { currentStep, formData } = useContext(FormContext);
   const dispatch = useContext(DispatchContext);
   const totalSteps = 4;
@@ -24,7 +24,7 @@ export default function BookingForm() {
       case 1:
         return <TicketSelection />;
       case 2:
-        return <CampSelection />;
+        return <CampSelection spots={spots} />;
       case 3:
         return <Personalinfo />;
       default:
