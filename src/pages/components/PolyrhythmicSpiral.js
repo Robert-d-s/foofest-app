@@ -25,8 +25,12 @@ export default function PolyrhythmicSpiral() {
         return (numberOfCycles * distancePerCycle) / settings.duration;
       };
 
+      // const calculateNextImpactTime = (currentImpactTime, velocity) => {
+      //   return currentImpactTime + (Math.PI / velocity) * 1000;
+      // };
+
       const calculateNextImpactTime = (currentImpactTime, velocity) => {
-        return currentImpactTime + (Math.PI / velocity) * 1000;
+        return currentImpactTime + ((2 * Math.PI) / velocity) * 1000; // The next impact time is the current impact time plus the time it takes to complete a full rotation at the current velocity
       };
 
       const calculatePositionOnArc = (center, radius, angle) => ({
@@ -66,6 +70,8 @@ export default function PolyrhythmicSpiral() {
         drawArc(position.x, position.y, pointRadius, 0, 2 * Math.PI, "fill");
       };
 
+      let frame = 0;
+
       const draw = () => {
         paper.width = paper.clientWidth;
         paper.height = paper.clientHeight;
@@ -94,8 +100,13 @@ export default function PolyrhythmicSpiral() {
           2 /
           colors.length;
 
+        // const gradientPosition = (frame % 360) / 360; // Calculate the position of the gradient based on the current frame
+
         arcs.forEach((arc, index) => {
           const radius = base.initialRadius + base.spacing * index;
+
+          // const gradientPosition = ((frame + index * 10) % 360) / 360;
+          const gradientPosition = ((frame - index * 5) % 360) / 360;
 
           // Create a radial gradient (concentric circles of different colors)
           // let gradient = pen.createRadialGradient(
@@ -109,13 +120,35 @@ export default function PolyrhythmicSpiral() {
           // gradient.addColorStop(0, "red");
           // gradient.addColorStop(1, "blue");
 
+          // frame++;
+
           // Calculate the position of the moving circle
           const distance = elapsedTime >= 0 ? elapsedTime * arc.velocity : 0;
           const angle = (Math.PI + distance) % base.maxAngle;
           const position = calculatePositionOnArc(center, radius, angle);
 
           // Calculate the color based on the position of the circle along the arc
-          const colorPosition = index / arcs.length;
+
+          // const colorPosition = index / arcs.length;
+
+          // const colorPosition = (index + frame / 100) % arcs.length;
+
+          // const colorPosition = (index - frame / 900) % arcs.length;
+
+          // const colorPosition =
+          //   (index - frame / 200 + arcs.length) % arcs.length;
+
+          // const colorPosition = (Math.sin(frame / 200) + 1) / 2;
+
+          const colorPosition = ((frame - index * 10) % 360) / 360;
+
+          // const red = Math.floor(255 * colorPosition);
+          // const blue = Math.floor(255 * (1 - colorPosition));
+
+          // Calculate the color based on the position of the gradient
+          // const red = Math.floor(255 * gradientPosition);
+          // const blue = Math.floor(255 * (1 - gradientPosition));
+
           const red = Math.floor(255 * colorPosition);
           const blue = Math.floor(255 * (1 - colorPosition));
 
@@ -153,6 +186,9 @@ export default function PolyrhythmicSpiral() {
 
           drawPointOnArc(center, radius, base.circleRadius, angle);
         });
+
+        // frame++;
+        frame += 0.5;
 
         pen.font = "15px Arial"; // Set the font size and family
         pen.fillStyle = "#A6C48A"; // Set the text color
