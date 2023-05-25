@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { FormContext, DispatchContext } from "../contexts/FormContext";
 import CampCard from "./CampCard";
+import TentSelection from "./TentSelection";
 
 const CampSelection = ({ spots }) => {
   const { formData } = useContext(FormContext);
@@ -26,7 +27,7 @@ const CampSelection = ({ spots }) => {
     const tentSetup = e.target.checked;
     dispatch({
       type: "UPDATE_FIELD",
-      payload: { section: "campData", field: "tentSetup", value: tentSetup },
+      payload: { section: "tentData", field: "tentSetup", value: tentSetup },
     });
   };
 
@@ -59,14 +60,8 @@ const CampSelection = ({ spots }) => {
         />
         Go green
       </label>
-      <label>
-        <input
-          type="checkbox"
-          checked={formData.campData.tentSetup}
-          onChange={handleTentSetupChange}
-        />
-        Order Tent Setup
-      </label>
+      <TentSelection />
+
       <button onClick={handleNext}>Next</button>
     </div>
   );

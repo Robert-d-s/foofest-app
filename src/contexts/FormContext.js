@@ -6,7 +6,20 @@ const initialState = {
   currentStep: 1,
   formData: {
     ticketData: { ticketType: "regular", ticketQuantity: 1 },
-    campData: { campType: "regular", campSpot: "", tentSetup: false },
+    campData: { campType: "regular", campSpot: "" },
+    tentData: {
+      x2tents: {
+        amount: 0,
+        price: 299,
+        capacity: 2,
+      },
+      x3tents: {
+        amount: 0,
+        price: 399,
+        capacity: 3,
+      },
+      totalTentCapacity: 0,
+    },
     attendees: [
       {
         firstName: "",
@@ -14,6 +27,7 @@ const initialState = {
         email: "",
       },
     ],
+    totalPrice: 0,
     id: "",
   },
 };
@@ -22,6 +36,22 @@ const formReducer = (state, action) => {
   switch (action.type) {
     case "UPDATE_FIELD":
       const { section, field, value } = action.payload;
+      if (section === "tentData") {
+        return {
+          ...state,
+          formData: {
+            ...state.formData,
+            [section]: {
+              ...state.formData[section],
+              [field]: {
+                ...state.formData[section][field],
+                amount: value,
+                totalPrice: value * state.formData[section][field].price,
+              },
+            },
+          },
+        };
+      }
       return {
         ...state,
         formData: {
