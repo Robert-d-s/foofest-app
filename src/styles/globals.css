@@ -15,7 +15,8 @@
   --clr-accent-hotpink: hotpink;
   --clr-hover: #fef8b8;
 
-  /*For marquee*/
+  /*For Marquee*/
+  --size: clamp(10rem, 1rem + 40vmin, 30rem);
   --gap: calc(var(--size) / 14);
   --duration: 60s;
   --scroll-start: 0;
@@ -62,6 +63,7 @@
   }
 }
 
+/*General */
 * {
   box-sizing: border-box;
   padding: 0;
