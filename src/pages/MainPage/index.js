@@ -46,14 +46,10 @@ const MainPage = ({ bandsData, scheduleData }) => {
 };
 
 export async function getServerSideProps() {
-  const bandsResponse = await fetch(
-    "https://hollow-glowing-gladiolus.glitch.me/bands"
-  );
+  const bandsResponse = await fetch("http://localhost:8080/bands");
   const bandsData = await bandsResponse.json();
 
-  const scheduleResponse = await fetch(
-    "https://hollow-glowing-gladiolus.glitch.me/schedule"
-  );
+  const scheduleResponse = await fetch("http://localhost:8080/schedule");
   const scheduleData = await scheduleResponse.json();
 
   return { props: { bandsData, scheduleData } };
