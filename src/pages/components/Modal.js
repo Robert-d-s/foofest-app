@@ -14,7 +14,7 @@ const Modal = ({ band, onClose }) => (
             src={
               band.logo.startsWith("https")
                 ? band.logo
-                : `http://localhost:8080/logos/${band.logo}`
+                : `https://hollow-glowing-gladiolus.glitch.me/logos/${band.logo}`
             }
             alt={band.name}
             width={500}
