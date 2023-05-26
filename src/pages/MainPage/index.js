@@ -82,8 +82,6 @@ import Band from "../components/Band";
 import Modal from "../components/Modal";
 
 const MainPage = ({ bandsData, scheduleData }) => {
-  const [bands, setBands] = useState(bandsData);
-  const [schedule, setSchedule] = useState(scheduleData);
   const [selectedDay, setSelectedDay] = useState("mon");
   const [selectedBand, setSelectedBand] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -104,16 +102,16 @@ const MainPage = ({ bandsData, scheduleData }) => {
   return (
     <div>
       <DaySelector onDayChange={handleDayChange} />
-      {Object.entries(schedule).map(([stage, days]) => (
+      {Object.entries(scheduleData).map(([stage, days]) => (
         <Stage key={stage} stage={stage} days={days} day={selectedDay} />
       ))}
-      {bands.map((band) => (
+      {bandsData.map((band) => (
         <Band
           key={band.id}
           band={band}
           onBandClick={handleBandClick}
           selectedDay={selectedDay}
-          schedule={schedule}
+          schedule={scheduleData}
         />
       ))}
       {isModalOpen && selectedBand && (
