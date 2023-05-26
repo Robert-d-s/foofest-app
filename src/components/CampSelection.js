@@ -65,7 +65,9 @@ const CampSelection = ({ spots }) => {
           checked={formData.campData.tentSetup}
           onChange={handleTentSetupChange}
         />
-        Order Tent Setup
+        Order Tent Setup<div>
+          
+        </div>
       </label>
       <button onClick={handleNext}>Next</button>
     </div>
