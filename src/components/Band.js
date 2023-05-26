@@ -17,17 +17,37 @@
 // Band.js
 import styles from "./Band.module.css";
 
+// const Band = ({ band, onBandClick, selectedDay, schedule }) => {
+//   const isPlayingToday = Object.values(schedule).some((stage) =>
+//     stage[selectedDay]?.some((act) => act.act === band.name)
+//   );
+
+//   return (
+//     <div
+//       className={`${styles.band} ${isPlayingToday ? styles.active : ""}`}
+//       onClick={() => onBandClick(band)}
+//     >
+//       {band.name}
+//     </div>
+//   );
+// };
+
+// export default Band;
+
 const Band = ({ band, onBandClick, selectedDay, schedule }) => {
-  const isPlayingToday = Object.values(schedule).some((stage) =>
-    stage[selectedDay]?.some((act) => act.act === band.name)
-  );
+  const isPlayingToday =
+    band &&
+    schedule &&
+    Object.values(schedule).some((stage) =>
+      stage[selectedDay]?.some((act) => act && act.act === band.name)
+    );
 
   return (
     <div
       className={`${styles.band} ${isPlayingToday ? styles.active : ""}`}
       onClick={() => onBandClick(band)}
     >
-      {band.name}
+      {band && band.name}
     </div>
   );
 };
