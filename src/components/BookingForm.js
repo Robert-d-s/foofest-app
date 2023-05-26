@@ -47,7 +47,7 @@ export default function BookingForm() {
   };
 
   return (
-    <div className={styles.body}>
+    <div>
       {renderFormStep()}
       <div>
         {currentStep > 1 && <button onClick={handlePrevious}>Previous</button>}
