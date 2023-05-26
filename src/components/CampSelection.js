@@ -3,8 +3,8 @@ import { FormContext, DispatchContext } from "../contexts/FormContext";
 import CampCard from "./CampCard";
 import TentSelection from "./TentSelection";
 
-const CampSelection = ({ spots }) => {
-  const { formData } = useContext(FormContext);
+const CampSelection = () => {
+  const { formData, spots } = useContext(FormContext);
   const dispatch = useContext(DispatchContext);
 
   const handleCampSpotChange = (e) => {

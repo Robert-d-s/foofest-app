@@ -4,6 +4,7 @@ export const DispatchContext = createContext();
 
 const initialState = {
   currentStep: 1,
+  spots: [],
   formData: {
     ticketData: { ticketType: "regular", ticketQuantity: 1 },
     campData: { campType: "regular", campSpot: "" },
@@ -114,9 +115,14 @@ const formReducer = (state, action) => {
         ...state,
         formData: {
           ...state.formData,
-          attendees: [...state.formData.attendees, { firstName: "", lastName: "", email: "" }],
+          attendees: [
+            ...state.formData.attendees,
+            { firstName: "", lastName: "", email: "" },
+          ],
         },
       };
+    case "SET_AREAS":
+      return { ...state, spots: action.payload };
 
     default:
       return state;
@@ -127,7 +133,9 @@ export const FormProvider = ({ children }) => {
   const [state, dispatch] = useReducer(formReducer, initialState);
   return (
     <FormContext.Provider value={state}>
-      <DispatchContext.Provider value={dispatch}>{children}</DispatchContext.Provider>
+      <DispatchContext.Provider value={dispatch}>
+        {children}
+      </DispatchContext.Provider>
     </FormContext.Provider>
   );
 };

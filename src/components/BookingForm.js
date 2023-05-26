@@ -1,14 +1,28 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FormContext, DispatchContext } from "../contexts/FormContext";
 import TicketSelection from "../components/TicketSelection";
 import CampSelection from "../components/CampSelection";
 import Personalinfo from "../components/Personalinfo";
 import AttendeeInfo from "./AttendeeInfo";
 
-export default function BookingForm({ spots }) {
-  const { currentStep, formData } = useContext(FormContext);
+export default function BookingForm() {
+  const { currentStep, formData, spots } = useContext(FormContext);
   const dispatch = useContext(DispatchContext);
   const totalSteps = 4;
+
+  useEffect(() => {
+    fetch("http://localhost:8080/available-spots")
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch({
+          type: "SET_AREAS",
+          payload: data,
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+      });
+  }, [dispatch]);
 
   const handlePrevious = () => {
     dispatch({ type: "PREVIOUS_STEP" });
