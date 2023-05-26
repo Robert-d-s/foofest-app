@@ -157,7 +157,7 @@ export default function PolyrhythmicSpiral() {
           pen.lineWidth = base.length * 0.003;
           pen.strokeStyle = `rgb(${red}, 0, ${blue})`;
 
-          const offset = (base.circleRadius * (5 / 3)) / radius;
+          const offset = (base.circleRadius * (0 / 3)) / radius;
 
           drawArc(
             center.x,
@@ -190,10 +190,10 @@ export default function PolyrhythmicSpiral() {
         // frame++;
         frame += 0.5;
 
-        pen.font = "30px Arial"; // Set the font size and family
-        pen.fillStyle = "#A6C48A"; // Set the text color
-        pen.textAlign = "center"; // Align the text to the center
-        pen.fillText("ColorFOO", center.x, center.y); // Draw the text at the center of the canvas
+        pen.font = "30px Arial";
+        pen.fillStyle = "#A6C48A";
+        pen.textAlign = "center";
+        pen.fillText("ColorFOO", center.x, center.y);
         pen.fillText("Festival!", center.x, center.y + 25);
 
         requestAnimationFrame(draw);
