@@ -78,7 +78,7 @@
 /*bands and times*/
 :is(.actBox) p {
   padding-bottom: 0.1rem;
-  color: lightgrey; /*remove this later*/
+  /* color: lightgrey; remove this later */
   font-size: 1.25rem;
 }
 
