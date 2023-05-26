@@ -55,3 +55,5 @@ const Modal = ({ band, onClose }) => (
     </div>
   </div>
 );
+
+export default Modal;

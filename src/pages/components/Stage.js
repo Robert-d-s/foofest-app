@@ -27,3 +27,5 @@ const Stage = ({ stage, days, day }) => (
         .map((act, index) => <Act key={index} act={act} />)}
   </div>
 );
+
+export default Stage;

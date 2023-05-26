@@ -51,3 +51,5 @@ const Band = ({ band, onBandClick, selectedDay, schedule }) => {
     </div>
   );
 };
+
+export default Band;
