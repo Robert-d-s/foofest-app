@@ -104,3 +104,50 @@ a {
     color-scheme: dark;
   }
 } */
+
+/*The Whole Header area*/
+.programBox {
+  padding: 4rem 0rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid pink;
+}
+
+/*Line-up Header*/
+.header {
+  font-family: var(--font-thicc);
+  font-size: 5.61rem;
+  letter-spacing: 0.3rem;
+  line-height: 1;
+  color: var(--clr-white);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  border: 1px solid hotpink;
+  background-color: white;
+}
+
+/*Responsive*/
+@media (max-width: 750px) {
+  .programBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .band {
+    text-align: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .header {
+    font-size: 3.815rem;
+  }
+}

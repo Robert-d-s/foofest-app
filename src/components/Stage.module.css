@@ -1,0 +1,15 @@
+/* Stage.module.css */
+
+.stage {
+  display: grid;
+  max-width: 65vw;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  color: var(--clr-white);
+}
+
+.subHeader {
+  font-family: var(--font-text-secondary);
+  color: var(--clr-white);
+  font-size: 2.369rem;
+}
