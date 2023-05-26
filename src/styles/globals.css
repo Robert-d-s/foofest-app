@@ -1,43 +1,46 @@
+@import "fonts.css";
+
 :root {
-  --max-width: 1100px;
+  /*Fonts*/
+  --font-text: "Syne", sans-serif;
+  --font-text-secondary: "Saira", sans-serif;
+  --font-header-teko: "Teko", sans-serif;
+  --font-header-azo: azo-sans-web, sans-serif;
+  --font-thicc: azo-sans-uber, sans-serif;
+
+  /*Colors*/
+
+  --clr-white: #ffffff;
+  --clr-black: #000000;
+  --clr-accent-hotpink: hotpink;
+  --clr-hover: #fef8b8;
+
+  /*For Marquee*/
+  --size: clamp(10rem, 1rem + 40vmin, 30rem);
+  --gap: calc(var(--size) / 14);
+  --duration: 60s;
+  --scroll-start: 0;
+  --scroll-end: calc(-100% - var(--gap));
+
+  /* --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace; */
 
-  --foreground-rgb: 0, 0, 0;
+  /* --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
+  --background-end-rgb: 255, 255, 255; */
+  /* 
+  --primary-glow: conic-gradient(from 180deg at 50% 50%, #16abff33 0deg, #0885ff33 55deg, #54d6ff33 120deg, #0071ff33 160deg, transparent 360deg);
+  --secondary-glow: radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
 
   --tile-start-rgb: 239, 245, 249;
   --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
+  --tile-border: conic-gradient(#00000080, #00000040, #00000030, #00000020, #00000010, #00000010, #00000080);
 
   --callout-rgb: 238, 240, 241;
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
+  --card-border-rgb: 131, 134, 135; */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -73,6 +76,7 @@
   }
 }
 
+/*General */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -86,13 +90,8 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: var(--clr-black);
+  font-family: var(--font-text);
 }
 
 a {
@@ -100,8 +99,55 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+} */
+
+/*The Whole Header area*/
+.programBox {
+  padding: 4rem 0rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid pink;
+}
+
+/*Line-up Header*/
+.header {
+  font-family: var(--font-thicc);
+  font-size: 5.61rem;
+  letter-spacing: 0.3rem;
+  line-height: 1;
+  color: var(--clr-white);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  border: 1px solid hotpink;
+  background-color: white;
+}
+
+/*Responsive*/
+@media (max-width: 750px) {
+  .programBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .band {
+    text-align: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .header {
+    font-size: 3.815rem;
   }
 }

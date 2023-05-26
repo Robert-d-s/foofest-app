@@ -1,0 +1,203 @@
+/* Schedule.module.css */
+
+/*The Whole Header area*/
+.programBox {
+  padding: 4rem 0rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid pink;
+}
+
+/*Line-up Header*/
+.header {
+  font-family: var(--font-thicc);
+  font-size: 5.61rem;
+  letter-spacing: 0.3rem;
+  line-height: 1;
+  color: var(--clr-white);
+  margin: 0;
+  padding: 0;
+}
+
+/*Button container*/
+/*First its a grid, later becomes flex:row*/
+.btnBox {
+  /* text-align: center; */
+  /* width: 100%; */
+  width: 250px;
+  border: 1px solid blue; /*remove this later*/
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+}
+
+:is(.btnBox) button {
+  padding: 0.2rem 1rem;
+  justify-self: start;
+  font-family: var(--font-header-azo);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  border: none;
+  background: none;
+  color: white;
+  transition: 0.2s all ease-out;
+}
+
+:is(.btnBox) button:hover {
+  font-weight: 600;
+  /* text-decoration: underline; */
+  transform: scale(1.05);
+}
+
+.btnBox button:hover::before {
+  content: "☆"; /* Unicode value for a right-pointing triangle symbol */
+  position: absolute;
+  left: 0; /* Adjust the value to position the symbol as desired */
+  transition: opacity 0.2s ease-in-out;
+}
+
+/*commenting out the old version that has flex*/
+.container {
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 2rem; */
+  width: 100%;
+  border: 1px solid hotpink;
+  background-color: white;
+}
+
+:is(.container) .bandBox {
+  width: 75vw;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.band {
+  color: var(--clr-black);
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  font-weight: 600;
+  font-family: var(--font-text);
+  margin: 0rem 0.5rem;
+}
+
+.band.active {
+  padding: 0 0.3rem;
+  animation-name: scaleUp;
+  /* animation-duration: 0.5s; */
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+}
+
+/* .band {
+  flex: 1 0 200px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+} */
+
+/* .button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0070f3;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+} */
+
+/* .button:hover {
+  background-color: #0051bb;
+} */
+
+.scaleUp {
+  /* animation: scaleUp 0.5s ease-in-out; */
+  animation: scaleUp 0.7s ease-out;
+}
+
+/* @keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+} */
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+    background-color: initial;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+    background-color: orange;
+    color: whitesmoke;
+  }
+}
+
+.band {
+  transition: all 0.5s ease;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Adjust this to change the modal background */
+}
+
+.modalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+/*Responsive*/
+@media (max-width: 750px) {
+  .programBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .band {
+    text-align: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .header {
+    font-size: 3.815rem;
+  }
+}
