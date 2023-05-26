@@ -3,12 +3,12 @@ import { FormContext, DispatchContext } from "../contexts/FormContext";
 import TicketSelection from "../components/TicketSelection";
 import CampSelection from "../components/CampSelection";
 import Personalinfo from "../components/Personalinfo";
-import AttendeeInfo from "./AttendeeInfo";
+import CardDetails from "../components/CardDetails";
 
 export default function BookingForm() {
   const { currentStep, formData, spots } = useContext(FormContext);
   const dispatch = useContext(DispatchContext);
-  const totalSteps = 4;
+  const totalSteps = 5;
 
   useEffect(() => {
     fetch("http://localhost:8080/available-spots")
@@ -41,6 +41,8 @@ export default function BookingForm() {
         return <CampSelection spots={spots} />;
       case 3:
         return <Personalinfo />;
+      case 4:
+        return <CardDetails />;
       default:
         return null;
     }
