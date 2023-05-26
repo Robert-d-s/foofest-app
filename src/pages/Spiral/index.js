@@ -1,4 +1,4 @@
-import PolyrhythmicSpiral from "../components/PolyrhythmicSpiral";
+import PolyrhythmicSpiral from "../../components/PolyrhythmicSpiral";
 
 export default function bla() {
   return (

@@ -9,7 +9,7 @@ export default function PolyrhythmicSpiral() {
     if (paper) {
       const pen = paper.getContext("2d");
 
-      const colors = Array(15).fill("#A6C48A");
+      const colors = Array(22).fill("#A6C48A");
 
       const settings = {
         startTime: new Date().getTime(),

@@ -1,9 +1,9 @@
 // MainPage.js
 import React, { useState, useEffect } from "react";
-import DaySelector from "../components/DaySelector";
-import Stage from "../components/Stage";
-import Band from "../components/Band";
-import Modal from "../components/Modal";
+import DaySelector from "../../components/DaySelector";
+import Stage from "../../components/Stage";
+import Band from "../../components/Band";
+import Modal from "../../components/Modal";
 
 const MainPage = () => {
   const [bands, setBands] = useState([]);
