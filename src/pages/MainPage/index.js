@@ -24,6 +24,7 @@ const MainPage = () => {
         "https://hollow-glowing-gladiolus.glitch.me/schedule"
       );
       const scheduleData = await scheduleResponse.json();
+      // const scheduleData = await scheduleResponse.json();
 
       setBands(bandsData);
       setSchedule(scheduleData);
