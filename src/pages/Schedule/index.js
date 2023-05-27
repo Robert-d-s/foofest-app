@@ -1,6 +1,7 @@
 import styles from "./schedule.module.css";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Navbar from "@/components/Navbar";
 
 const Schedule = () => {
   const [schedule, setSchedule] = useState({});
@@ -22,6 +23,7 @@ const Schedule = () => {
 
   return (
     <div>
+      <Navbar />
       <div className={styles.programContainer}>
         <h1 className={styles.header}>Programme</h1>
 

@@ -1,5 +1,6 @@
 .sectionBox {
   width: 100%;
+  background-color: var(--clr-white);
 }
 
 :is(.sectionBox) section {

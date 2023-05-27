@@ -73,7 +73,6 @@
 }
 
 :is(.container) .bandBox {
-  width: 75vw;
   list-style-type: none;
   display: flex;
   flex-direction: row;

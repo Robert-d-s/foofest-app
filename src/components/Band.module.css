@@ -7,6 +7,7 @@
   font-weight: 600;
   font-family: var(--font-text);
   margin: 0rem 0.5rem;
+  transition: all 0.5s ease;
 }
 
 .band.active {
@@ -14,6 +15,11 @@
   animation-name: scaleUp;
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
+}
+
+.scaleUp {
+  /* animation: scaleUp 0.5s ease-in-out; */
+  animation: scaleUp 0.7s ease-out;
 }
 
 @keyframes scaleUp {

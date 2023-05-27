@@ -75,6 +75,8 @@ export default function PolyrhythmicSpiral() {
       const draw = () => {
         paper.width = paper.clientWidth;
         paper.height = paper.clientHeight;
+        // paper.width = window.innerWidth * 1;
+        // paper.height = window.innerHeight * 1;
 
         const currentTime = new Date().getTime();
         const elapsedTime = (currentTime - settings.startTime) / 1000;
@@ -190,11 +192,11 @@ export default function PolyrhythmicSpiral() {
         // frame++;
         frame += 0.5;
 
-        pen.font = "30px Arial";
+        pen.font = "75px Arial";
         pen.fillStyle = "#A6C48A";
         pen.textAlign = "center";
         pen.fillText("ColorFOO", center.x, center.y);
-        pen.fillText("Festival!", center.x, center.y + 25);
+        pen.fillText("Festival!", center.x, center.y + 75);
 
         requestAnimationFrame(draw);
       };

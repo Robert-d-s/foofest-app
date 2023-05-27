@@ -15,7 +15,6 @@
 // export default Band;
 
 // Band.js
-import styles from "./Band.module.css";
 
 // const Band = ({ band, onBandClick, selectedDay, schedule }) => {
 //   const isPlayingToday = Object.values(schedule).some((stage) =>
@@ -34,6 +33,8 @@ import styles from "./Band.module.css";
 
 // export default Band;
 
+import styles from "./Band.module.css";
+
 const Band = ({ band, onBandClick, selectedDay, schedule }) => {
   const isPlayingToday =
     band &&
@@ -43,11 +44,14 @@ const Band = ({ band, onBandClick, selectedDay, schedule }) => {
     );
 
   return (
-    <div
-      className={`${styles.band} ${isPlayingToday ? styles.active : ""}`}
-      onClick={() => onBandClick(band)}
-    >
-      {band && band.name}
+    <div className={styles.bandBox}>
+      <div
+        key={band.id}
+        className={`${styles.band} ${isPlayingToday ? styles.active : ""}`}
+        onClick={() => onBandClick(band)}
+      >
+        {band && band.name}
+      </div>
     </div>
   );
 };
