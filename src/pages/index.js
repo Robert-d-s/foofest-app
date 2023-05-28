@@ -6,6 +6,7 @@ import Band from "../components/Band";
 import Modal from "../components/Modal";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Bubbles from "../components/Bubbles";
 // import styles from "./Home.module.css";
 
 const MainPage = ({ bandsData, scheduleData }) => {
@@ -30,27 +31,31 @@ const MainPage = ({ bandsData, scheduleData }) => {
     <div>
       <Navbar />
       <PolyrhythmicSpiral />
+
       <div className={styles.programBox}>
         <h1 className={styles.header}>Line-up</h1>
         <DaySelector onDayChange={handleDayChange} />
       </div>
-      <div className={styles.container}>
-        <div className={styles.bandBox}>
-          {bandsData.map((band) => (
-            <Band
-              key={band.id}
-              band={band}
-              onBandClick={handleBandClick}
-              selectedDay={selectedDay}
-              schedule={scheduleData}
-            />
-          ))}
-          {isModalOpen && selectedBand && (
-            <Modal band={selectedBand} onClose={closeModal} />
-          )}
+      <div className={styles.bcontainer}>
+        <Bubbles />
+        <div className={styles.container}>
+          <div className={styles.bandBox}>
+            {bandsData.map((band) => (
+              <Band
+                key={band.id}
+                band={band}
+                onBandClick={handleBandClick}
+                selectedDay={selectedDay}
+                schedule={scheduleData}
+              />
+            ))}
+            {isModalOpen && selectedBand && (
+              <Modal band={selectedBand} onClose={closeModal} />
+            )}
+          </div>
         </div>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 };
