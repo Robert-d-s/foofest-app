@@ -2,7 +2,7 @@ import styles from "@/styles/Home.module.css";
 import React, { useState } from "react";
 import PolyrhythmicSpiral from "../components/PolyrhythmicSpiral";
 import DaySelector from "../components/DaySelector";
-import Band from "../components/Band";
+import Band from "../components/Band2";
 import Modal from "../components/Modal";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -40,13 +40,14 @@ const MainPage = ({ bandsData, scheduleData }) => {
         <Bubbles />
         <div className={styles.container}>
           <div className={styles.bandBox}>
-            {bandsData.map((band) => (
+            {bandsData.map((band, index) => (
               <Band
                 key={band.id}
                 band={band}
                 onBandClick={handleBandClick}
                 selectedDay={selectedDay}
                 schedule={scheduleData}
+                index={index}
               />
             ))}
             {isModalOpen && selectedBand && (
