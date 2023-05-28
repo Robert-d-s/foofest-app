@@ -24,6 +24,16 @@ export default function TicketSelection() {
         type: "UPDATE_FIELD",
         payload: { section: "ticketData", field: "ticketQuantity", value: ticketQuantity },
       });
+
+      // Calculate the tentRemainder based on ticketQuantity
+      const tentRemainder = -ticketQuantity;
+
+      dispatch({
+        type: "CALCULATE_TENT_CAPACITY",
+        payload: {
+          tentRemainder,
+        },
+      });
     }
   };
 

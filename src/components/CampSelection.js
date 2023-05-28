@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext, useState } from "react";
 import { FormContext, DispatchContext } from "../contexts/FormContext";
 import CampCard from "./CampCard";
 import TentSelection from "./TentSelection";
@@ -6,6 +6,7 @@ import TentSelection from "./TentSelection";
 const CampSelection = () => {
   const { formData, spots } = useContext(FormContext);
   const dispatch = useContext(DispatchContext);
+  const [errors, setErrors] = useState([]);
 
   const handleCampSpotChange = (e) => {
     const campSpot = e.target.value;
@@ -23,17 +24,23 @@ const CampSelection = () => {
     });
   };
 
-  const handleTentSetupChange = (e) => {
-    const tentSetup = e.target.checked;
-    dispatch({
-      type: "UPDATE_FIELD",
-      payload: { section: "tentData", field: "tentSetup", value: tentSetup },
-    });
-  };
-
   const handleNext = () => {
-    dispatch({ type: "NEXT_STEP" });
-    dispatch({ type: "CREATE_ATTENDEE_STRUCTURE" });
+    let errors = [];
+
+    if (!formData.campData.campSpot) {
+      errors.push("Please choose a camp spot.");
+    }
+
+    if (formData.tentData.tentRemainder > 1) {
+      errors.push("Your chosen amount of tents is too low. Please adjust your selection.");
+    }
+
+    if (errors.length === 0) {
+      dispatch({ type: "NEXT_STEP" });
+      dispatch({ type: "CREATE_ATTENDEE_STRUCTURE" });
+    } else {
+      setErrors(errors);
+    }
   };
 
   return (
@@ -61,6 +68,13 @@ const CampSelection = () => {
         Go green
       </label>
       <TentSelection />
+      {errors.length > 0 && (
+        <div>
+          {errors.map((error, index) => (
+            <p key={index}>{error}</p>
+          ))}
+        </div>
+      )}
 
       <button onClick={handleNext}>Next</button>
     </div>

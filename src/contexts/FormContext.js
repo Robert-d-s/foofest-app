@@ -20,6 +20,7 @@ const initialState = {
         capacity: 3,
       },
       totalTentCapacity: 0,
+      tentRemainder: 1,
     },
     attendees: [
       {
@@ -47,7 +48,6 @@ const formReducer = (state, action) => {
               [field]: {
                 ...state.formData[section][field],
                 amount: value,
-                totalPrice: value * state.formData[section][field].price,
               },
             },
           },
@@ -115,14 +115,30 @@ const formReducer = (state, action) => {
         ...state,
         formData: {
           ...state.formData,
-          attendees: [
-            ...state.formData.attendees,
-            { firstName: "", lastName: "", email: "" },
-          ],
+          attendees: [...state.formData.attendees, { firstName: "", lastName: "", email: "" }],
         },
       };
     case "SET_AREAS":
       return { ...state, spots: action.payload };
+
+    case "CALCULATE_TENT_CAPACITY":
+      const { x2tents, x3tents } = state.formData.tentData;
+
+      const totalTentCapacity =
+        x2tents.amount * x2tents.capacity + x3tents.amount * x3tents.capacity;
+      const tentRemainder = state.formData.ticketData.ticketQuantity - totalTentCapacity;
+
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          tentData: {
+            ...state.formData.tentData,
+            totalTentCapacity,
+            tentRemainder,
+          },
+        },
+      };
 
     default:
       return state;
@@ -133,9 +149,7 @@ export const FormProvider = ({ children }) => {
   const [state, dispatch] = useReducer(formReducer, initialState);
   return (
     <FormContext.Provider value={state}>
-      <DispatchContext.Provider value={dispatch}>
-        {children}
-      </DispatchContext.Provider>
+      <DispatchContext.Provider value={dispatch}>{children}</DispatchContext.Provider>
     </FormContext.Provider>
   );
 };
