@@ -6,7 +6,7 @@ import Band from "../components/Band";
 import Modal from "../components/Modal";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Bubbles from "../components/Bubbles";
+import Bubbles from "../components/Bubbles2";
 // import styles from "./Home.module.css";
 
 const MainPage = ({ bandsData, scheduleData }) => {

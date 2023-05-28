@@ -111,11 +111,41 @@ const Bubbles = () => {
   const [colorIndex, setColorIndex] = useState(0);
   const bubbleWrapperRef = useRef(null);
 
+  // const animateBubble = useCallback(
+  //   (e) => {
+  //     const y =
+  //       e.clientY - bubbleWrapperRef.current.getBoundingClientRect().top;
+  //     const x = e.clientX;
+  //     const direction = x < window.innerWidth / 2 ? "left" : "right";
+  //     const newBubble = {
+  //       id: uuidv4(),
+  //       y,
+  //       color: colors[colorIndex],
+  //       direction,
+  //     };
+  //     setBubbles((bubbles) => [...bubbles, newBubble]);
+  //     setColorIndex((colorIndex + 1) % colors.length);
+
+  //     setTimeout(() => {
+  //       setBubbles((bubbles) =>
+  //         bubbles.filter((bubble) => bubble.id !== newBubble.id)
+  //       );
+  //     }, 2000);
+  //   },
+  //   [colorIndex]
+  // );
+
+  // useEffect(() => {
+  //   const handleMouseMove = (e) => animateBubble(e);
+  //   window.addEventListener("mousemove", handleMouseMove);
+
+  //   return () => {
+  //     window.removeEventListener("mousemove", handleMouseMove);
+  //   };
+  // }, [animateBubble]);
+
   const animateBubble = useCallback(
-    (e) => {
-      const y =
-        e.clientY - bubbleWrapperRef.current.getBoundingClientRect().top;
-      const x = e.clientX;
+    (y, x) => {
       const direction = x < window.innerWidth / 2 ? "left" : "right";
       const newBubble = {
         id: uuidv4(),
@@ -123,24 +153,36 @@ const Bubbles = () => {
         color: colors[colorIndex],
         direction,
       };
-      setBubbles((bubbles) => [...bubbles, newBubble]);
+      setBubbles((bubbles) => {
+        if (bubbles.length > 50) {
+          // Limit the number of bubbles
+          return [...bubbles.slice(1), newBubble]; // Remove the oldest bubble when adding a new one
+        } else {
+          return [...bubbles, newBubble];
+        }
+      });
       setColorIndex((colorIndex + 1) % colors.length);
-
-      setTimeout(() => {
-        setBubbles((bubbles) =>
-          bubbles.filter((bubble) => bubble.id !== newBubble.id)
-        );
-      }, 2000);
     },
     [colorIndex]
   );
 
   useEffect(() => {
-    const handleMouseMove = (e) => animateBubble(e);
+    let animationFrameId = null;
+    const handleMouseMove = (e) => {
+      if (animationFrameId === null) {
+        // Only create a new bubble if we're not already waiting to create one
+        animationFrameId = requestAnimationFrame(() => {
+          animateBubble(e.clientY, e.clientX);
+          animationFrameId = null;
+        });
+      }
+    };
     window.addEventListener("mousemove", handleMouseMove);
-
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      if (animationFrameId !== null) {
+        cancelAnimationFrame(animationFrameId);
+      }
     };
   }, [animateBubble]);
 

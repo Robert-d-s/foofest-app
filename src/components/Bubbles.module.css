@@ -16,6 +16,8 @@
   border-radius: 100%;
   position: absolute;
   animation: 2s ease-in-out infinite;
+  transform: translate(0, 0); /* Use transform instead of top, left, etc. */
+  will-change: transform; /* Inform the browser that we're likely to change the transform */
 }
 
 .bubble.left {
