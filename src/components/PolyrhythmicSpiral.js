@@ -151,13 +151,51 @@ export default function PolyrhythmicSpiral() {
           // const red = Math.floor(255 * gradientPosition);
           // const blue = Math.floor(255 * (1 - gradientPosition));
 
-          const red = Math.floor(255 * colorPosition);
-          const blue = Math.floor(255 * (1 - colorPosition));
+          // -----------------original effect----
+
+          // const red = Math.floor(255 * colorPosition);
+          // const blue = Math.floor(255 * (1 - colorPosition));
+          // const green = Math.floor(255 * (1 - Math.abs(colorPosition - 0.5)));
+
+          // -----------------original effect----
+
+          // -----------------last effect----
+
+          // const red = Math.floor(255 * (1 - Math.abs(colorPosition - 0.5) * 2));
+          // const green = Math.floor(255 * (1.5 - Math.abs(colorPosition - 0.5)));
+          // const blue = Math.floor(255 * (0.5 - Math.abs(colorPosition - 0.5)));
+
+          // -----------------last effect----
+
+          let red, green, blue;
+
+          if (colorPosition < 0.25) {
+            // Red to Blue transition
+            red = Math.floor(255 * (1 - colorPosition / 0.25));
+            green = 0;
+            blue = Math.floor(255 * (colorPosition / 0.25));
+          } else if (colorPosition < 0.5) {
+            // Blue to Orange transition
+            red = Math.floor(255 * ((colorPosition - 0.25) / 0.25));
+            green = Math.floor(140 * ((colorPosition - 0.25) / 0.25)); // Orange has some green
+            blue = Math.floor(255 * (1 - (colorPosition - 0.25) / 0.25));
+          } else if (colorPosition < 0.75) {
+            // Orange to Green transition
+            red = Math.floor(255 * (1 - (colorPosition - 0.5) / 0.25));
+            green = Math.floor(140 + 115 * ((colorPosition - 0.5) / 0.25)); // Transition to full green
+            blue = 0;
+          } else {
+            // Green to Red transition
+            red = Math.floor(255 * ((colorPosition - 0.75) / 0.25));
+            green = Math.floor(255 * (1 - (colorPosition - 0.75) / 0.25));
+            blue = 0;
+          }
 
           // Draw arcs
           pen.globalAlpha = 0.75;
           pen.lineWidth = base.length * 0.003;
-          pen.strokeStyle = `rgb(${red}, 0, ${blue})`;
+          // pen.strokeStyle = `rgb(${red}, 0, ${blue})`;
+          pen.strokeStyle = `rgb(${red}, ${green}, ${blue})`;
 
           const offset = (base.circleRadius * (0 / 3)) / radius;
 
@@ -174,7 +212,8 @@ export default function PolyrhythmicSpiral() {
           pen.globalAlpha = 1;
           // pen.fillStyle = arc.color;
           // pen.fillStyle = gradient;
-          pen.fillStyle = `rgb(${red}, 0, ${blue})`;
+          // pen.fillStyle = `rgb(${red}, 0, ${blue})`;
+          pen.fillStyle = `rgb(${red}, ${green}, ${blue})`;
 
           if (currentTime >= arc.nextImpactTime) {
             arc.nextImpactTime = calculateNextImpactTime(
@@ -190,7 +229,7 @@ export default function PolyrhythmicSpiral() {
         });
 
         // frame++;
-        frame += 0.5;
+        frame += 0.9;
 
         pen.font = "75px Arial";
         pen.fillStyle = "#A6C48A";
