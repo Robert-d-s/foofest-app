@@ -3,7 +3,6 @@ import { FormContext, DispatchContext } from "../contexts/FormContext";
 import TicketSelection from "../components/TicketSelection";
 import CampSelection from "../components/CampSelection";
 import Personalinfo from "../components/Personalinfo";
-import AttendeeInfo from "./AttendeeInfo";
 
 export default function BookingForm() {
   const { currentStep, formData, spots } = useContext(FormContext);

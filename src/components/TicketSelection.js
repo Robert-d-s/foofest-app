@@ -26,7 +26,7 @@ export default function TicketSelection() {
       });
 
       // Calculate the tentRemainder based on ticketQuantity
-      const tentRemainder = -ticketQuantity;
+      const tentRemainder = ticketQuantity;
 
       dispatch({
         type: "CALCULATE_TENT_CAPACITY",
