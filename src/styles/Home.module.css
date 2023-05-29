@@ -57,3 +57,33 @@
 .programBox h1 {
   z-index: 10;
 }
+
+/* .festmap {
+  position: relative;
+  width: 100%;
+
+  height: auto;
+  resize: both;
+  overflow: auto;
+} */
+/* .festmap {
+  width: 100%;
+  height: auto;
+} */
+
+.festmap {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* for an aspect ratio of 16:9; adjust as needed */
+  position: relative;
+}
+
+.festmap img {
+  position: absolute;
+  /* top: 0;
+  left: 0; */
+  /* width: 100%;
+  height: 100%; */
+  margin: 0;
+  padding: 0;
+}

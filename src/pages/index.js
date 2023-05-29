@@ -1,6 +1,7 @@
 import styles from "@/styles/Home.module.css";
 import Head from "next/head";
 import React, { useState } from "react";
+import Image from "next/image";
 // import PolyrhythmicSpiral from "../components/PolyrhythmicSpiral";
 import PolyrhythmicSpiral from "../components/Spiral";
 import DaySelector from "../components/DaySelector";
@@ -40,7 +41,7 @@ const MainPage = ({ bandsData, scheduleData }) => {
       <PolyrhythmicSpiral />
 
       <div className={styles.programBox}>
-        {/* <h1 className={styles.header}>Line-up</h1> */}
+        <h1 className={styles.header}>Line-up</h1>
         <DaySelector onDayChange={handleDayChange} />
       </div>
       <div className={styles.bcontainer}>
@@ -62,6 +63,17 @@ const MainPage = ({ bandsData, scheduleData }) => {
             )}
           </div>
         </div>
+      </div>
+      <div className={styles.festmap}>
+        <Image
+          src="/images/festmap.png"
+          alt="Festival Map"
+          // layout="responsive"
+          // width={500}
+          // height={300}
+          fill
+          style={{ objectFit: "scale-down" }}
+        />
       </div>
       <Footer />
     </div>
