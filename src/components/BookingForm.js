@@ -33,7 +33,13 @@ export default function BookingForm() {
     console.log("Form data:", formData);
   };
 
-  const renderFormStep = () => {
+  /** Stepper will be rendered just like below:
+   *
+   * const renderFormStepper
+   * or the stepper could also be returned in the renderFormStep after the case
+   */
+
+  const renderFormComponent = () => {
     switch (currentStep) {
       case 1:
         return <TicketSelection />;
@@ -46,9 +52,10 @@ export default function BookingForm() {
     }
   };
 
+  /** And this would have another div with the stepper ? */
   return (
     <div>
-      {renderFormStep()}
+      {renderFormComponent()}
       <div>
         {currentStep > 1 && <button onClick={handlePrevious}>Previous</button>}
         {currentStep === totalSteps && (
