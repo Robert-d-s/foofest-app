@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { FormContext, DispatchContext } from "../contexts/FormContext";
 import CampCard from "./CampCard";
 import TentSelection from "./TentSelection";
+import styles from "@/components/CampSelection.module.css";
 
 const CampSelection = () => {
   const { formData, spots } = useContext(FormContext);
@@ -36,12 +37,14 @@ const CampSelection = () => {
     dispatch({ type: "CREATE_ATTENDEE_STRUCTURE" });
   };
 
+  const handlePrevious = () => {
+    dispatch({ type: "PREVIOUS_STEP" });
+  };
   return (
-    <div>
-      <h2>Camp Selection</h2>
+    <div className={styles.campSelection}>
+      <h2>Choose Your Camp</h2>
       <label>
-        Camp Spot:
-        <div>
+        <div className={styles.CampDivs}>
           {spots.map((spot) => (
             <CampCard
               key={spot.area}
@@ -61,8 +64,14 @@ const CampSelection = () => {
         Go green
       </label>
       <TentSelection />
-
-      <button onClick={handleNext}>Next</button>
+      <div className={styles.twoButtons}>
+        <button className={styles.previousButton} onClick={handlePrevious}>
+          ← &nbsp; Previous
+        </button>
+        <button className={styles.nextButton} onClick={handleNext}>
+          Next &nbsp; →
+        </button>
+      </div>
     </div>
   );
 };

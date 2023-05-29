@@ -1,0 +1,75 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.inputField {
+  height: 2rem;
+  width: 4rem;
+  padding: 1rem;
+  border-radius: 6px;
+  border: none;
+}
+
+.inputFieldLabel {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.label {
+  gap: 3rem;
+}
+
+.ticketsTypes {
+  display: flex;
+  gap: 8rem;
+}
+
+.ticketsQuantity {
+  display: flex;
+  gap: 6rem;
+}
+
+.radioButton {
+  border: 2px solid rgb(255, 243, 243);
+  padding: 1rem;
+  width: 10rem;
+}
+
+.radioButton:checked::after {
+  background-color: aquamarine;
+}
+
+.nextButton {
+  background: none;
+  border: 2px solid white;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  width: 9rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.nextButton:hover {
+  background: white;
+  border: none;
+  border: 2px solid white;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  width: 9rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+/* .input[type="radio"] {
+
+  -webkit-appearance: none;
+  appearance: none;
+
+  background-color: #fff;
+
+  margin: 0;
+}
+ */
