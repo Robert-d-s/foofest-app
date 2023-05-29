@@ -63,7 +63,7 @@ const MainPage = ({ bandsData, scheduleData }) => {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
