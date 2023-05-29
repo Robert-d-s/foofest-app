@@ -2,6 +2,7 @@ import styles from "./schedule.module.css";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import DaySelector from "@/components/DaySelector";
 
 const Schedule = () => {
   const [schedule, setSchedule] = useState({});
@@ -25,18 +26,10 @@ const Schedule = () => {
     <div>
       <Navbar />
       <div className={styles.programContainer}>
-        <h1 className={styles.header}>Programme</h1>
-
-        <div className={styles.btnBox}>
-          <button onClick={() => filterBands("mon")}>Monday</button>
-          <button onClick={() => filterBands("tue")}>Tuesday</button>
-          <button onClick={() => filterBands("wed")}>Wednesday</button>
-          <button onClick={() => filterBands("thu")}>Thursday</button>
-          <button onClick={() => filterBands("fri")}>Friday</button>
-          <button onClick={() => filterBands("sat")}>Saturday</button>
-          <button onClick={() => filterBands("sun")}>Sunday</button>
+        <div className={styles.programBox}>
+          <h1 className={styles.header}>Programme</h1>
+          <DaySelector onDayChange={filterBands} />
         </div>
-
         <div className={styles.stageBox}>
           {Object.entries(schedule).map(([stage, days]) => (
             <div key={stage}>

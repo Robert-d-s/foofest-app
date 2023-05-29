@@ -1,0 +1,70 @@
+/* Band.module.css */
+
+.band {
+  color: var(--clr-black);
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  font-weight: 600;
+  font-family: var(--font-text);
+  margin: 0rem 0.5rem;
+  transition: all 0.5s ease;
+  /* ------------------------ */
+  opacity: 0;
+  transition: opacity 3s, transform 3s;
+}
+
+.band.active.active {
+  padding: 0 0.3rem;
+  /* animation-name: scaleUp;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards; */
+  animation: scaleUp 0.7s ease-out forwards;
+}
+
+.scaleUp {
+  /* animation: scaleUp 0.5s ease-in-out; */
+  animation: scaleUp 0.7s ease-out;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+    background-color: initial;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+    background-color: orange;
+    color: whitesmoke;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* @keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} */
+
+/* .band {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s forwards;
+  transition: opacity 0.5s;
+} */
+
+.band.visible {
+  opacity: 1;
+  /* animation: fadeIn 0.5s forwards; */
+  animation-delay: calc(var(--index) * 0.6s);
+}

@@ -1,11 +1,13 @@
 import styles from "@/styles/Home.module.css";
 import React, { useState } from "react";
-import PolyrhythmicSpiral from "../components/PolyrhythmicSpiral";
+// import PolyrhythmicSpiral from "../components/PolyrhythmicSpiral";
+import PolyrhythmicSpiral from "../components/Spiral";
 import DaySelector from "../components/DaySelector";
-import Band from "../components/Band";
+import Band from "../components/Band2";
 import Modal from "../components/Modal";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Bubbles from "../components/Bubbles3";
 // import styles from "./Home.module.css";
 
 const MainPage = ({ bandsData, scheduleData }) => {
@@ -30,27 +32,32 @@ const MainPage = ({ bandsData, scheduleData }) => {
     <div>
       <Navbar />
       <PolyrhythmicSpiral />
+
       <div className={styles.programBox}>
         <h1 className={styles.header}>Line-up</h1>
         <DaySelector onDayChange={handleDayChange} />
       </div>
-      <div className={styles.container}>
-        <div className={styles.bandBox}>
-          {bandsData.map((band) => (
-            <Band
-              key={band.id}
-              band={band}
-              onBandClick={handleBandClick}
-              selectedDay={selectedDay}
-              schedule={scheduleData}
-            />
-          ))}
-          {isModalOpen && selectedBand && (
-            <Modal band={selectedBand} onClose={closeModal} />
-          )}
+      <div className={styles.bcontainer}>
+        <Bubbles />
+        <div className={styles.container}>
+          <div className={styles.bandBox}>
+            {bandsData.map((band, index) => (
+              <Band
+                key={band.id}
+                band={band}
+                onBandClick={handleBandClick}
+                selectedDay={selectedDay}
+                schedule={scheduleData}
+                index={index}
+              />
+            ))}
+            {isModalOpen && selectedBand && (
+              <Modal band={selectedBand} onClose={closeModal} />
+            )}
+          </div>
         </div>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 };

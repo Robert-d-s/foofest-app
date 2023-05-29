@@ -1,0 +1,94 @@
+/* .bubbleWrapper {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bubble {
+  height: max(300px, 30vw);
+  width: max(300px, 30vw);
+  background-color: rgb(33, 150, 243);
+  border-radius: 100%;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  animation: wave 2s ease-in-out infinite;
+}
+
+@keyframes wave {
+  from,
+  to {
+    transform: translate(-50%, 0%);
+  }
+
+  50% {
+    transform: translate(-50%, -20%);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .bubble {
+    animation: none;
+    display: none;
+  }
+} */
+
+.bubbleWrapper {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bubble {
+  height: max(300px, 30vw);
+  width: max(300px, 30vw);
+  background-color: rgb(33, 150, 243);
+  border-radius: 100%;
+  position: absolute;
+  animation: 2s ease-in-out infinite;
+}
+
+.bubble.left {
+  left: -50%;
+  animation-name: waveLeft;
+}
+
+.bubble.right {
+  right: -50%;
+  animation-name: waveRight;
+}
+
+@keyframes waveLeft {
+  from,
+  to {
+    transform: translateX(0%);
+  }
+
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes waveRight {
+  from,
+  to {
+    transform: translateX(0%);
+  }
+
+  50% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .bubble {
+    animation: none;
+    display: none;
+  }
+}

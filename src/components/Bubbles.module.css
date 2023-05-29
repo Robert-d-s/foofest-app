@@ -1,0 +1,60 @@
+.bubbleWrapper {
+  height: 100%;
+  width: 100%;
+  /* position: fixed; */
+  position: absolute;
+  left: 0px;
+  overflow: hidden;
+  pointer-events: none;
+  /* z-index: -1; */
+}
+
+.bubble {
+  height: max(300px, 30vw);
+  width: max(300px, 30vw);
+  background-color: rgb(33, 150, 243);
+  border-radius: 100%;
+  position: absolute;
+  animation: 2s ease-in-out infinite;
+  transform: translate(0, 0); /* Use transform instead of top, left, etc. */
+  will-change: transform; /* Inform the browser that we're likely to change the transform */
+}
+
+.bubble.left {
+  left: -50%;
+  animation-name: waveLeft;
+}
+
+.bubble.right {
+  right: -50%;
+  animation-name: waveRight;
+}
+
+@keyframes waveLeft {
+  from,
+  to {
+    transform: translateX(0%);
+  }
+
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes waveRight {
+  from,
+  to {
+    transform: translateX(0%);
+  }
+
+  50% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .bubble {
+    animation: none;
+    display: none;
+  }
+}
