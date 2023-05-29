@@ -75,8 +75,14 @@ export default function PolyrhythmicSpiral() {
       };
       let frame = 0;
       const draw = () => {
-        paper.width = paper.clientWidth;
-        paper.height = paper.clientHeight;
+        // paper.width = paper.clientWidth;
+        // paper.height = paper.clientHeight;
+
+        // paper.width = window.innerWidth;
+        // paper.height = window.innerHeight;
+
+        paper.width = paper.parentElement.clientWidth;
+        paper.height = paper.parentElement.clientHeight;
 
         const currentTime = new Date().getTime();
         const elapsedTime = (currentTime - settings.startTime) / 1000;
