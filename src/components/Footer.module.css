@@ -8,7 +8,7 @@
 
 .marquee {
   display: flex;
-  /* overflow: hidden; */
+  overflow: hidden;
   user-select: none;
   gap: 1rem;
   background-color: var(--clr-hover);

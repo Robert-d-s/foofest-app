@@ -40,7 +40,7 @@ const MainPage = ({ bandsData, scheduleData }) => {
       <PolyrhythmicSpiral />
 
       <div className={styles.programBox}>
-        <h1 className={styles.header}>Line-up</h1>
+        {/* <h1 className={styles.header}>Line-up</h1> */}
         <DaySelector onDayChange={handleDayChange} />
       </div>
       <div className={styles.bcontainer}>
@@ -63,7 +63,7 @@ const MainPage = ({ bandsData, scheduleData }) => {
           </div>
         </div>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
