@@ -71,19 +71,9 @@
   height: auto;
 } */
 
-.festmap {
+/* .festmap {
   width: 100%;
   height: 0;
-  padding-bottom: 56.25%; /* for an aspect ratio of 16:9; adjust as needed */
+  padding-bottom: 56.25%;
   position: relative;
-}
-
-.festmap img {
-  position: absolute;
-  /* top: 0;
-  left: 0; */
-  /* width: 100%;
-  height: 100%; */
-  margin: 0;
-  padding: 0;
-}
+} */

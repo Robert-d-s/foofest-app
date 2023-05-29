@@ -10,6 +10,7 @@ import Modal from "../components/Modal";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Bubbles from "../components/Bubbles3";
+import FestMap from "@/components/FestMap";
 // import styles from "./Home.module.css";
 
 const MainPage = ({ bandsData, scheduleData }) => {
@@ -65,7 +66,7 @@ const MainPage = ({ bandsData, scheduleData }) => {
         </div>
       </div>
       <div className={styles.festmap}>
-        <Image
+        {/* <Image
           src="/images/festmap.png"
           alt="Festival Map"
           // layout="responsive"
@@ -73,7 +74,8 @@ const MainPage = ({ bandsData, scheduleData }) => {
           // height={300}
           fill
           style={{ objectFit: "scale-down" }}
-        />
+        /> */}
+        <FestMap src="/images/festmap.png" alt="Festival Map" />
       </div>
       <Footer />
     </div>
