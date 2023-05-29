@@ -1,6 +1,7 @@
 import styles from "@/styles/Home.module.css";
 import React, { useState } from "react";
-import PolyrhythmicSpiral from "../components/PolyrhythmicSpiral";
+// import PolyrhythmicSpiral from "../components/PolyrhythmicSpiral";
+import PolyrhythmicSpiral from "../components/Spiral";
 import DaySelector from "../components/DaySelector";
 import Band from "../components/Band2";
 import Modal from "../components/Modal";
