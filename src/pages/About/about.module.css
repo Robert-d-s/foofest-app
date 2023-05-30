@@ -12,7 +12,6 @@
   font-size: 4.209rem;
   font-family: var(--font-thicc);
   letter-spacing: 0.2rem;
-
   padding-bottom: 2rem;
 }
 
@@ -20,4 +19,23 @@
   font-size: 2.074rem;
   line-height: 2.5rem;
   padding-bottom: 0.694rem;
+}
+
+/*Responsive*/
+@media (max-width: 750px) {
+  .sectionBox {
+    padding: 2.5rem 0;
+  }
+
+  :is(.sectionBox section) p {
+    font-size: 1.44rem;
+    line-height: 2.1rem;
+  }
+}
+
+@media (max-width: 450px) {
+  :is(.sectionBox section) p {
+    font-size: 1rem;
+    line-height: 1.8rem;
+  }
 }
