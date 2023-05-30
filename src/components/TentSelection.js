@@ -17,6 +17,9 @@ export default function TentSelection() {
     dispatch({
       type: "CALCULATE_TENT_CAPACITY",
     });
+    dispatch({
+      type: "CALCULATE_TENT_PRICE",
+    });
   };
 
   const removeTent = (tentType) => {
@@ -31,6 +34,10 @@ export default function TentSelection() {
       });
       dispatch({
         type: "CALCULATE_TENT_CAPACITY",
+      });
+
+      dispatch({
+        type: "CALCULATE_TENT_PRICE",
       });
     }
   };
@@ -51,7 +58,10 @@ export default function TentSelection() {
           </button>
         </div>
         <p>2 persons tent {formData.tentData.x2tents.price},-</p>
-        <p>Total Price: {formData.tentData.x2tents.amount * formData.tentData.x2tents.price},-</p>
+        <p>
+          Price:{" "}
+          {formData.tentData.x2tents.amount * formData.tentData.x2tents.price},-
+        </p>
       </div>
       <div>
         <div>
@@ -60,7 +70,8 @@ export default function TentSelection() {
           <button
             onClick={() => addTent("x3tents")}
             disabled={
-              formData.tentData.tentRemainder === 0 || formData.tentData.tentRemainder <= 1
+              formData.tentData.tentRemainder === 0 ||
+              formData.tentData.tentRemainder <= 1
                 ? true
                 : false
             }
@@ -69,7 +80,11 @@ export default function TentSelection() {
           </button>
         </div>
         <p>3 persons tent {formData.tentData.x3tents.price},-</p>
-        <p>Total Price: {formData.tentData.x3tents.amount * formData.tentData.x3tents.price},-</p>
+        <p>
+          Price:{" "}
+          {formData.tentData.x3tents.amount * formData.tentData.x3tents.price},-
+        </p>
+        <p> {formData.tentData.totalTentPrice}</p>
       </div>
     </div>
   );

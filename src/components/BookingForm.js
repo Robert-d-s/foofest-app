@@ -25,11 +25,6 @@ export default function BookingForm() {
       });
   }, [dispatch]);
 
-  const handleSubmit = () => {
-    // Perform the POST request to '/fulfill-reservation' with formData
-    console.log("Form data:", formData);
-  };
-
   const renderFormStep = () => {
     switch (currentStep) {
       case 1:
@@ -47,9 +42,16 @@ export default function BookingForm() {
     }
   };
 
+  function handleTotalPrice() {
+    dispatch({
+      type: "CALCULATE_TOTAL_PRICE",
+    });
+  }
+
   return (
     <div className={styles.wrapper}>
       {renderFormStep()}
+      {handleTotalPrice()}
       <aside className={styles.aside}>
         <div className={styles.asideDiv}>
           <div className={styles.basketDiv}>
@@ -70,6 +72,14 @@ export default function BookingForm() {
           </div>
           <div className={styles.basketDiv}>
             <b>
+              <p>Price for tickets</p>
+            </b>
+            <p className={styles.textInBasket}>
+              {formData.ticketData.totalTicketPrice}
+            </p>
+          </div>
+          <div className={styles.basketDiv}>
+            <b>
               <p>Camp Spot</p>
             </b>
             <p className={styles.textInBasket}>{formData.campData.campSpot}</p>
@@ -80,15 +90,19 @@ export default function BookingForm() {
             </b>
             <p className={styles.textInBasket}>{formData.campData.campType}</p>
           </div>
+          <div className={styles.basketDiv}>
+            <b>
+              <p>TOTAL PRICE</p>
+            </b>
+            <p className={styles.textInBasket}>
+              {formData.campData.campPrice +
+                formData.ticketData.totalTicketPrice +
+                formData.tentData.totalTentPrice +
+                formData.fixedFee}
+            </p>
+          </div>
         </div>
       </aside>
-      <div>
-        {currentStep === 4 && (
-          <div>
-            <button onClick={handleSubmit}>Submit</button>
-          </div>
-        )}
-      </div>
     </div>
   );
 }

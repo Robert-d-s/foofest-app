@@ -23,6 +23,10 @@ const CampSelection = () => {
       type: "UPDATE_FIELD",
       payload: { section: "campData", field: "campType", value: campType },
     });
+    dispatch({
+      type: "UPDATE_CAMPTYPE_PRICE",
+      payload: { campType: campType },
+    });
   };
 
   const handleNext = () => {
@@ -70,7 +74,7 @@ const CampSelection = () => {
           checked={formData.campData.campType === "green"}
           onChange={handleCampTypeChange}
         />
-        Go green
+        GO GREEN +249 ,-
       </label>
       <TentSelection />
       {errors.length > 0 && (
@@ -80,6 +84,7 @@ const CampSelection = () => {
           ))}
         </div>
       )}
+
       <div className={styles.twoButtons}>
         <button className={styles.previousButton} onClick={handlePrevious}>
           ← &nbsp; Previous

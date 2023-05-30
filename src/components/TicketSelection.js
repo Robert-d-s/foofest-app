@@ -19,6 +19,9 @@ export default function TicketSelection() {
         value: ticketType,
       },
     });
+    dispatch({
+      type: "CALCULATE_TICKET_PRICE",
+    });
   };
 
   const handleTicketQuantityChange = (e) => {
@@ -31,6 +34,9 @@ export default function TicketSelection() {
           field: "ticketQuantity",
           value: ticketQuantity,
         },
+      });
+      dispatch({
+        type: "CALCULATE_TICKET_PRICE",
       });
 
       // Calculate the tentRemainder based on ticketQuantity
@@ -83,6 +89,23 @@ export default function TicketSelection() {
         <button className={styles.nextButton} onClick={handleNext}>
           Next &nbsp; →
         </button>
+      </div>
+      <div>
+        <p>Please note there is a Fixed booking fee of 99 ,-</p>
+      </div>
+      <div>
+        <h2>Ticket Information</h2>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with
+          the release of Letraset sheets containing Lorem Ipsum passages, and
+          more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.
+        </p>
       </div>
     </div>
   );

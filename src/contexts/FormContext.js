@@ -6,9 +6,14 @@ const initialState = {
   currentStep: 1,
   spots: [],
   formData: {
-    ticketData: { ticketType: "regular", ticketQuantity: 1 },
-    campData: { campType: "regular", campSpot: "" },
+    ticketData: {
+      ticketType: "regular",
+      ticketQuantity: 1,
+      totalTicketPrice: 0,
+    },
+    campData: { campType: "regular", campSpot: "-", campPrice: 0 },
     tentData: {
+      totalTentPrice: 0,
       x2tents: {
         amount: 0,
         price: 299,
@@ -27,12 +32,15 @@ const initialState = {
         email: "",
       },
     ],
+    fixedFee: 99,
     totalPrice: 0,
     id: "",
   },
 };
 
 const formReducer = (state, action) => {
+  const { x2tents, x3tents } = state.formData.tentData;
+
   switch (action.type) {
     case "UPDATE_FIELD":
       const { section, field, value } = action.payload;
@@ -113,18 +121,66 @@ const formReducer = (state, action) => {
         ...state,
         formData: {
           ...state.formData,
-          attendees: [...state.formData.attendees, { firstName: "", lastName: "", email: "" }],
+          attendees: [
+            ...state.formData.attendees,
+            { firstName: "", lastName: "", email: "" },
+          ],
         },
       };
     case "SET_AREAS":
       return { ...state, spots: action.payload };
 
-    case "CALCULATE_TENT_CAPACITY":
-      const { x2tents, x3tents } = state.formData.tentData;
+    case "CALCULATE_TICKET_PRICE":
+      const { ticketType } = state.formData.ticketData;
+      const ticketQuantity = state.formData.ticketData.ticketQuantity;
 
+      const totalTicketPrice =
+        ticketType === "VIP"
+          ? 399 * parseInt(ticketQuantity)
+          : 299 * parseInt(ticketQuantity);
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          ticketData: {
+            ...state.formData.ticketData,
+            totalTicketPrice: totalTicketPrice,
+          },
+        },
+      };
+
+    case "UPDATE_CAMPTYPE_PRICE":
+      const campPrice = action.payload.campType === "green" ? 249 : 0;
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          campData: {
+            ...state.formData.campData,
+            campPrice: campPrice,
+          },
+        },
+      };
+    case "CALCULATE_TENT_PRICE":
+      const totalTentPrice =
+        x2tents.amount * x2tents.price + x3tents.amount * x3tents.price;
+
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          tentData: {
+            ...state.formData.tentData,
+            totalTentPrice,
+          },
+        },
+      };
+
+    case "CALCULATE_TENT_CAPACITY":
       const totalTentCapacity =
         x2tents.amount * x2tents.capacity + x3tents.amount * x3tents.capacity;
-      const tentRemainder = state.formData.ticketData.ticketQuantity - totalTentCapacity;
+      const tentRemainder =
+        state.formData.ticketData.ticketQuantity - totalTentCapacity;
 
       return {
         ...state,
@@ -147,7 +203,9 @@ export const FormProvider = ({ children }) => {
   const [state, dispatch] = useReducer(formReducer, initialState);
   return (
     <FormContext.Provider value={state}>
-      <DispatchContext.Provider value={dispatch}>{children}</DispatchContext.Provider>
+      <DispatchContext.Provider value={dispatch}>
+        {children}
+      </DispatchContext.Provider>
     </FormContext.Provider>
   );
 };
