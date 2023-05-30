@@ -1,4 +1,5 @@
 import styles from "@/styles/Home.module.css";
+import Head from "next/head";
 import React, { useState } from "react";
 // import PolyrhythmicSpiral from "../components/PolyrhythmicSpiral";
 import PolyrhythmicSpiral from "../components/Spiral";
@@ -30,6 +31,11 @@ const MainPage = ({ bandsData, scheduleData }) => {
 
   return (
     <div>
+      <Head>
+        <title>ColorFOO</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Navbar />
       <PolyrhythmicSpiral />
 
