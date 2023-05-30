@@ -7,8 +7,6 @@
   gap: 2rem;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid pink; */
-  /* background: var(--clr-black); */
 }
 
 /*Line-up Header*/
@@ -22,6 +20,7 @@
   margin: 0;
   padding: 0;
 }
+
 .bandBox {
   display: flex;
   flex-direction: row;
@@ -30,7 +29,8 @@
   margin: 0 auto;
   justify-content: center;
   gap: 1rem;
-  background: var(--clr-white);
+  /* background: var(--clr-white); */
+  background-color: var(--clr-black);
 }
 
 .bandBox div {
@@ -40,9 +40,9 @@
 
 .container {
   width: 100%;
-  /* border: 1px solid hotpink; */
-  background-color: white;
-  /* position: relative; */
+  background-color: var(--clr-black);
+  /* background-color: white; */
+  padding-bottom: 3rem;
 }
 
 .bcontainer {
@@ -104,4 +104,19 @@
 
 .text p {
   padding: 0.2rem;
+}
+
+/*Responsive*/
+@media (max-width: 750px) {
+  .programBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 450px) {
+  .header {
+    font-size: 3.157rem;
+  }
 }
