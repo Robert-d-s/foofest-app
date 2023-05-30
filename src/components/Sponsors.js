@@ -9,31 +9,16 @@ export default function Sponsors() {
     <div className={styles.marqueeWrapper}>
       <div className={styles.marquee}>
         <div className={styles.marqueeContent}>
-          <Image src="/sponsors/butts.jpg" alt="one" width={100} height={100} />
-          <Image
-            src="/sponsors/cupcakes.png"
-            alt="one"
-            width={100}
-            height={100}
-          />
-          <Image
-            src="/sponsors/lostit.png"
-            alt="one"
-            width={100}
-            height={100}
-          />
-          <Image src="/sponsors/meh.jpg" alt="one" width={100} height={100} />
-          <Image src="/sponsors/nsfw.png" alt="one" width={100} height={100} />
-          <Image src="/sponsors/pb.jpg" alt="one" width={100} height={100} />
-          <Image src="/sponsors/quack.png" alt="one" width={100} height={100} />
-          <Image src="/sponsors/spoti.png" alt="one" width={100} height={100} />
-          <Image
-            src="/sponsors/toyoda.jpg"
-            alt="one"
-            width={100}
-            height={100}
-          />
-          <Image src="/sponsors/uup.jpg" alt="one" width={100} height={100} />
+          <Image src="/sponsors/butts.jpg" alt="one" width={100} height={68} />
+          <Image src="/sponsors/cupcakes.png" alt="one" width={100} height={68} />
+          <Image src="/sponsors/lostit.png" alt="one" width={100} height={68} />
+          <Image src="/sponsors/meh.jpg" alt="one" width={100} height={68} />
+          <Image src="/sponsors/nsfw.png" alt="one" width={100} height={68} />
+          <Image src="/sponsors/pb.jpg" alt="one" width={100} height={68} />
+          <Image src="/sponsors/quack.png" alt="one" width={100} height={68} />
+          <Image src="/sponsors/spoti.png" alt="one" width={100} height={68} />
+          <Image src="/sponsors/toyoda.jpg" alt="one" width={100} height={68} />
+          <Image src="/sponsors/uup.jpg" alt="one" width={100} height={68} />
           {/* <p>one1</p>
           <p>two 2</p>
           <p>three 3</p>
@@ -46,31 +31,16 @@ export default function Sponsors() {
           <p>ten 10</p> */}
         </div>
         <div aria-hidden="true" className={styles.marqueeContent}>
-          <Image src="/sponsors/butts.jpg" alt="one" width={100} height={100} />
-          <Image
-            src="/sponsors/cupcakes.png"
-            alt="one"
-            width={100}
-            height={100}
-          />
-          <Image
-            src="/sponsors/lostit.png"
-            alt="one"
-            width={100}
-            height={100}
-          />
-          <Image src="/sponsors/meh.jpg" alt="one" width={100} height={100} />
-          <Image src="/sponsors/nsfw.png" alt="one" width={100} height={100} />
-          <Image src="/sponsors/pb.jpg" alt="one" width={100} height={100} />
-          <Image src="/sponsors/quack.png" alt="one" width={100} height={100} />
-          <Image src="/sponsors/spoti.png" alt="one" width={100} height={100} />
-          <Image
-            src="/sponsors/toyoda.jpg"
-            alt="one"
-            width={100}
-            height={100}
-          />
-          <Image src="/sponsors/uup.jpg" alt="one" width={100} height={100} />
+          <Image src="/sponsors/butts.jpg" alt="one" width={100} height={68} />
+          <Image src="/sponsors/cupcakes.png" alt="one" width={100} height={68} />
+          <Image src="/sponsors/lostit.png" alt="one" width={100} height={68} />
+          <Image src="/sponsors/meh.jpg" alt="one" width={100} height={68} />
+          <Image src="/sponsors/nsfw.png" alt="one" width={100} height={68} />
+          <Image src="/sponsors/pb.jpg" alt="one" width={100} height={68} />
+          <Image src="/sponsors/quack.png" alt="one" width={100} height={68} />
+          <Image src="/sponsors/spoti.png" alt="one" width={100} height={68} />
+          <Image src="/sponsors/toyoda.jpg" alt="one" width={100} height={68} />
+          <Image src="/sponsors/uup.jpg" alt="one" width={100} height={68} />
           {/* <p>one1</p>
           <p>two 2</p>
           <p>three 3</p>
