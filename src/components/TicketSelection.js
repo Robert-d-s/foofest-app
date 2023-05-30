@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { FormContext, DispatchContext } from "../contexts/FormContext";
-
+import styles from "@/components/TicketSelection.module.css";
 export default function TicketSelection() {
   const { formData } = useContext(FormContext);
   const dispatch = useContext(DispatchContext);
@@ -13,7 +13,11 @@ export default function TicketSelection() {
     const ticketType = e.target.value;
     dispatch({
       type: "UPDATE_FIELD",
-      payload: { section: "ticketData", field: "ticketType", value: ticketType },
+      payload: {
+        section: "ticketData",
+        field: "ticketType",
+        value: ticketType,
+      },
     });
   };
 
@@ -22,7 +26,11 @@ export default function TicketSelection() {
     if (ticketQuantity >= 1) {
       dispatch({
         type: "UPDATE_FIELD",
-        payload: { section: "ticketData", field: "ticketQuantity", value: ticketQuantity },
+        payload: {
+          section: "ticketData",
+          field: "ticketQuantity",
+          value: ticketQuantity,
+        },
       });
 
       // Calculate the tentRemainder based on ticketQuantity
@@ -38,10 +46,10 @@ export default function TicketSelection() {
   };
 
   return (
-    <div>
-      <h2>Ticket Choice</h2>
-      <div>
-        <label>
+    <div className={styles.wrapper}>
+      <h2>Choose Your Ticket</h2>
+      <div className={styles.ticketsTypes}>
+        <label className={styles.radioButton}>
           <input
             type="radio"
             value="VIP"
@@ -50,7 +58,7 @@ export default function TicketSelection() {
           />
           VIP Ticket
         </label>
-        <label>
+        <label className={styles.radioButton}>
           <input
             type="radio"
             value="Regular"
@@ -60,18 +68,22 @@ export default function TicketSelection() {
           Regular Ticket
         </label>
       </div>
-      <div>
-        <label>
-          Ticket Quantity:
+      <div className={styles.ticketsQuantity}>
+        <label className={styles.inputFieldLabel}>
+          Ticket Quantity
           <input
+            className={styles.inputField}
             type="number"
             value={formData.ticketData.ticketQuantity}
             min={1}
             onChange={handleTicketQuantityChange}
           />
         </label>
+
+        <button className={styles.nextButton} onClick={handleNext}>
+          Next &nbsp; →
+        </button>
       </div>
-      <button onClick={handleNext}>Next</button>
     </div>
   );
 }

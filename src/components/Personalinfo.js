@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { FormContext, DispatchContext } from "../contexts/FormContext";
 import AttendeeInfo from "./AttendeeInfo";
+import styles from "../components/Personalinfo.module.css";
 
 export default function PersonalInfo() {
   const { formData } = useContext(FormContext);
@@ -8,6 +9,9 @@ export default function PersonalInfo() {
 
   const handleNext = () => {
     dispatch({ type: "NEXT_STEP" });
+  };
+  const handlePrevious = () => {
+    dispatch({ type: "PREVIOUS_STEP" });
   };
 
   /* --------THIS NEEDS TO BE FIXED-----*/
@@ -22,12 +26,19 @@ export default function PersonalInfo() {
   /* -------UP UNTIL HERE-----*/
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <h2>Personal Information</h2>
 
       <AttendeeInfo />
 
-      <button onClick={handleNext}>Next</button>
+      <div className={styles.twoButtons}>
+        <button className={styles.previousButton} onClick={handlePrevious}>
+          ← &nbsp; Previous
+        </button>
+        <button className={styles.nextButton} onClick={handleNext}>
+          Next &nbsp; →
+        </button>
+      </div>
     </div>
   );
 }

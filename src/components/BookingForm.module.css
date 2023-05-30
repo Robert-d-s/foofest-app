@@ -1,0 +1,61 @@
+.wrapper {
+  display: grid;
+  margin: 5rem;
+  margin-left: 10rem;
+}
+
+.aside {
+  position: absolute;
+  position: fixed;
+  width: 15rem;
+  height: 100vh;
+  visibility: visible;
+  top: 0;
+  right: 0;
+  border-left: 2px solid white;
+}
+.asideDiv {
+  position: relative;
+  width: 100%;
+  height: 70%;
+  position: sticky;
+  top: 15%;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2rem;
+  gap: 1.5rem;
+}
+
+.textInBasket {
+  color: gray;
+}
+
+.basketDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.previousButton {
+  background: none;
+  border: 2px solid white;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  width: 9rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.previousButton:hover {
+  background: white;
+  border: none;
+  border: 2px solid white;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  width: 9rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
