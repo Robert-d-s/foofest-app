@@ -12,7 +12,7 @@ export default function BookingForm() {
   const totalSteps = 5;
 
   useEffect(() => {
-    fetch("http://localhost:8080/available-spots")
+    fetch("https://hollow-glowing-gladiolus.glitch.me/available-spots")
       .then((response) => response.json())
       .then((data) => {
         dispatch({
