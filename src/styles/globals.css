@@ -130,7 +130,7 @@ a {
 }
 
 /*Responsive*/
-@media (max-width: 750px) {
+/* @media (max-width: 750px) {
   .programBox {
     width: 100%;
     display: flex;
@@ -145,4 +145,4 @@ a {
   .header {
     font-size: 3.815rem;
   }
-}
+} */
