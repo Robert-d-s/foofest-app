@@ -42,16 +42,10 @@ export default function BookingForm() {
     }
   };
 
-  function handleTotalPrice() {
-    dispatch({
-      type: "CALCULATE_TOTAL_PRICE",
-    });
-  }
-
   return (
     <div className={styles.wrapper}>
       {renderFormStep()}
-      {handleTotalPrice()}
+
       <aside className={styles.aside}>
         <div className={styles.asideDiv}>
           <div className={styles.basketDiv}>
