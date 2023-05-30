@@ -8,9 +8,10 @@ import DaySelector from "../components/DaySelector";
 import Band from "../components/Band2";
 import Modal from "../components/Modal";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Sponsors from "../components/Sponsors";
 import Bubbles from "../components/Bubbles3";
 import FestMap from "@/components/FestMap";
+import Footer from "@/components/Footer";
 // import styles from "./Home.module.css";
 
 const MainPage = ({ bandsData, scheduleData }) => {
@@ -77,6 +78,7 @@ const MainPage = ({ bandsData, scheduleData }) => {
         /> */}
         <FestMap src="/images/festmap.png" alt="Festival Map" />
       </div>
+      <Sponsors />
       <Footer />
     </div>
   );

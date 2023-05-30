@@ -48,9 +48,16 @@ const FestMap = ({ src, alt }) => {
       className={`${styles.festmap} ${isExpanded ? styles.expanded : ""}`}
       onClick={handleClick}
     >
-      <div className={styles.imageWrapper}>
-        <Image src={src} alt={alt} fill style={{ objectFit: "scale-down" }} />
-      </div>
+      {/* <div className={styles.imageWrapper}> */}
+      {/* <Image src={src} alt={alt} fill style={{ objectFit: "scale-down" }} /> */}
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        style={{ objectFit: "scale-down" }}
+        className={styles.image}
+      />
+      {/* </div> */}
     </div>
   );
 };
