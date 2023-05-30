@@ -10,7 +10,7 @@ import Modal from "../components/Modal";
 import Navbar from "../components/Navbar";
 import Sponsors from "../components/Sponsors";
 import Bubbles from "../components/Bubbles3";
-import FestMap from "@/components/FestMap2";
+import FestMap from "@/components/FestMap";
 import Footer from "@/components/Footer";
 // import styles from "./Home.module.css";
 

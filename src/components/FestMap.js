@@ -3,17 +3,19 @@ import Image from "next/image";
 import styles from "./FestMap.module.css";
 
 const FestMap = ({ src, alt }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  // const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleClick = () => {
-    setIsExpanded(!isExpanded);
-  };
+  // const handleClick = () => {
+  //   setIsExpanded(!isExpanded);
+  // };
 
   return (
     <div className={styles.container}>
       <div
-        className={`${styles.festmap} ${isExpanded ? styles.expanded : ""}`}
-        onClick={handleClick}
+        className={styles.festmap}
+        // <div
+        //   className={`${styles.festmap} ${isExpanded ? styles.expanded : ""}`}
+        //   onClick={handleClick}
       >
         <Image
           src={src}

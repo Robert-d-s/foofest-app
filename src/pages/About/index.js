@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 /**
  * To Do: make this into component or leave it as a separate page
  */
@@ -39,6 +40,7 @@ export default function About() {
           </p>
         </section>
       </div>
+      <Footer />
     </>
   );
 }
