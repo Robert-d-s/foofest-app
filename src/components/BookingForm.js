@@ -4,6 +4,8 @@ import TicketSelection from "../components/TicketSelection";
 import CampSelection from "../components/CampSelection";
 import Personalinfo from "../components/Personalinfo";
 import AttendeeInfo from "./AttendeeInfo";
+//stepper here
+import StepperBar from "./Stepper";
 
 export default function BookingForm() {
   const { currentStep, formData, spots } = useContext(FormContext);
@@ -55,6 +57,9 @@ export default function BookingForm() {
   /** And this would have another div with the stepper ? */
   return (
     <div>
+      <div>
+        <StepperBar />
+      </div>
       {renderFormComponent()}
       <div>
         {currentStep > 1 && <button onClick={handlePrevious}>Previous</button>}

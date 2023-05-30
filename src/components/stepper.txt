@@ -1,0 +1,6 @@
+Source: https://chakra-ui.com/docs/components/stepper/usage
+
+Use the step indicator component to show the user’s position in and progress through a multi-step process. 
+Step indicators are often used on application forms or workflow screens.
+
+The useSteps hook is exported to help manage the state of stepper and the active step index.
