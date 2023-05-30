@@ -33,18 +33,3 @@
   font-weight: 500;
   transform: scale(1.05);
 }
-
-/*Responsive*/
-/* @media (max-width: 750px) {
-  .programBox {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 450px) {
-  .header {
-    font-size: 3.157rem;
-  }
-} */
