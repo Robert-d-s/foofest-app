@@ -169,11 +169,11 @@ export default function PolyrhythmicSpiral() {
         // frame += (1000 - gradientSliderValue) / 500;
         frame += gradientSliderValue / 500;
 
-        pen.font = "75px Arial";
-        pen.fillStyle = "#A6C48A";
-        pen.textAlign = "center";
-        pen.fillText("ColorFOO", center.x, center.y);
-        pen.fillText("Festival!", center.x, center.y + 75);
+        // pen.font = "75px Arial";
+        // pen.fillStyle = "#A6C48A";
+        // pen.textAlign = "center";
+        // pen.fillText("ColorFOO", center.x, center.y);
+        // pen.fillText("Festival!", center.x, center.y + 75);
 
         requestAnimationFrame(draw);
       };

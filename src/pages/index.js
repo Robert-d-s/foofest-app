@@ -10,7 +10,7 @@ import Modal from "../components/Modal";
 import Navbar from "../components/Navbar";
 import Sponsors from "../components/Sponsors";
 import Bubbles from "../components/Bubbles3";
-import FestMap from "@/components/FestMap";
+import FestMap from "@/components/FestMap2";
 import Footer from "@/components/Footer";
 // import styles from "./Home.module.css";
 
@@ -40,8 +40,13 @@ const MainPage = ({ bandsData, scheduleData }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <PolyrhythmicSpiral />
-
+      <div className={styles.spiralContainer}>
+        <PolyrhythmicSpiral />
+        <div className={styles.text}>
+          <p>ColorFoo</p>
+          <p>Festival</p>
+        </div>
+      </div>
       <div className={styles.programBox}>
         <h1 className={styles.header}>Line-up</h1>
         <DaySelector onDayChange={handleDayChange} />
