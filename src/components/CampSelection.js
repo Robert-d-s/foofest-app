@@ -25,6 +25,32 @@ const CampSelection = () => {
     });
   };
 
+  function reserveSpot() {
+    fetch("https://hollow-glowing-gladiolus.glitch.me/reserve-spot", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        area: formData.campData.campSpot,
+        amount: formData.ticketData.ticketQuantity,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        const fetchedId = data.id;
+        dispatch({
+          type: "UPDATE_FIELD",
+          payload: { section: "id", value: fetchedId },
+        });
+        console.log(formData.id);
+      })
+      .catch((error) => {
+        console.log("Error occurred while fetching or updating id:", error);
+      });
+  }
+
   const handleNext = () => {
     let errors = [];
 
@@ -33,14 +59,13 @@ const CampSelection = () => {
     }
 
     if (formData.tentData.tentRemainder > 1) {
-      errors.push(
-        "Your chosen amount of tents is too low. Please adjust your selection."
-      );
+      errors.push("Your chosen amount of tents is too low. Please adjust your selection.");
     }
 
     if (errors.length === 0) {
       dispatch({ type: "NEXT_STEP" });
       dispatch({ type: "CREATE_ATTENDEE_STRUCTURE" });
+      reserveSpot();
     } else {
       setErrors(errors);
     }

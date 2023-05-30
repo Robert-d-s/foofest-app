@@ -36,6 +36,15 @@ const formReducer = (state, action) => {
   switch (action.type) {
     case "UPDATE_FIELD":
       const { section, field, value } = action.payload;
+      if (section === "id") {
+        return {
+          ...state,
+          formData: {
+            ...state.formData,
+            [section]: value,
+          },
+        };
+      }
       if (section === "tentData") {
         return {
           ...state,
