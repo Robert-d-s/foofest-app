@@ -1,0 +1,31 @@
+.festmap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  cursor: pointer;
+  z-index: 1000; /* adjust as needed */
+}
+
+.imageContainer {
+  width: 80%;
+  height: 80%;
+  position: relative;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.expanded {
+  opacity: 1;
+  visibility: visible;
+}

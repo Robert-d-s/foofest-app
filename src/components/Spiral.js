@@ -75,8 +75,14 @@ export default function PolyrhythmicSpiral() {
       };
       let frame = 0;
       const draw = () => {
-        paper.width = paper.clientWidth;
-        paper.height = paper.clientHeight;
+        // paper.width = paper.clientWidth;
+        // paper.height = paper.clientHeight;
+
+        // paper.width = window.innerWidth;
+        // paper.height = window.innerHeight;
+
+        paper.width = paper.parentElement.clientWidth;
+        paper.height = paper.parentElement.clientHeight;
 
         const currentTime = new Date().getTime();
         const elapsedTime = (currentTime - settings.startTime) / 1000;
@@ -163,11 +169,11 @@ export default function PolyrhythmicSpiral() {
         // frame += (1000 - gradientSliderValue) / 500;
         frame += gradientSliderValue / 500;
 
-        pen.font = "75px Arial";
-        pen.fillStyle = "#A6C48A";
-        pen.textAlign = "center";
-        pen.fillText("ColorFOO", center.x, center.y);
-        pen.fillText("Festival!", center.x, center.y + 75);
+        // pen.font = "75px Arial";
+        // pen.fillStyle = "#A6C48A";
+        // pen.textAlign = "center";
+        // pen.fillText("ColorFOO", center.x, center.y);
+        // pen.fillText("Festival!", center.x, center.y + 75);
 
         requestAnimationFrame(draw);
       };

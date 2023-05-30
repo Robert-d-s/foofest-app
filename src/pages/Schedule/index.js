@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import DaySelector from "@/components/DaySelector";
+import Footer from "@/components/Footer";
 
 const Schedule = () => {
   const [schedule, setSchedule] = useState({});
@@ -60,6 +61,7 @@ const Schedule = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

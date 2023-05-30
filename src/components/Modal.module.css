@@ -12,11 +12,63 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modalContent {
+/* .modalContent {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
   max-width: 60%;
   max-height: 90%;
-  /* overflow-y: auto; */
+  overflow-y: auto;
+} */
+
+.modalContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 75%;
+  max-height: 90%;
+  position: relative;
+}
+
+.modalContent .text {
+  flex: 1;
+  padding: 20px;
+}
+
+.modalContent .text h2 {
+  padding: 10px;
+}
+
+.modalContent .text p {
+  padding: 10px;
+}
+
+.modalContent .logo {
+  flex: 1;
+  padding-left: 20px;
+  text-align: right;
+}
+
+.modalContent button {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  background-color: whitesmoke;
+  padding: 20px;
+  border-radius: 25%;
+  z-index: 20;
+  transition: all 0.3s ease;
+}
+
+.modalContent button:hover {
+  transform: scale(1.1);
+  background-color: red;
+  color: white;
 }

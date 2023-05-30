@@ -1,0 +1,32 @@
+.festmap {
+  position: relative;
+  width: 40%;
+  /* display: inline-block; */
+  height: 500px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+.image {
+  object-fit: cover;
+  position: absolute;
+}
+
+.expanded {
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* justify-content: space-between; */
+}
+
+.textContainer {
+  width: 40%; /* adjust as needed */
+  padding: 20px;
+  color: white;
+}

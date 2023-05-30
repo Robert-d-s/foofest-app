@@ -1,14 +1,17 @@
 import styles from "@/styles/Home.module.css";
 import Head from "next/head";
 import React, { useState } from "react";
+import Image from "next/image";
 // import PolyrhythmicSpiral from "../components/PolyrhythmicSpiral";
 import PolyrhythmicSpiral from "../components/Spiral";
 import DaySelector from "../components/DaySelector";
 import Band from "../components/Band2";
 import Modal from "../components/Modal";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Sponsors from "../components/Sponsors";
 import Bubbles from "../components/Bubbles3";
+import FestMap from "@/components/FestMap";
+import Footer from "@/components/Footer";
 // import styles from "./Home.module.css";
 
 const MainPage = ({ bandsData, scheduleData }) => {
@@ -37,8 +40,13 @@ const MainPage = ({ bandsData, scheduleData }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <PolyrhythmicSpiral />
-
+      <div className={styles.spiralContainer}>
+        <PolyrhythmicSpiral />
+        <div className={styles.text}>
+          <p>ColorFoo</p>
+          <p>Festival</p>
+        </div>
+      </div>
       <div className={styles.programBox}>
         <h1 className={styles.header}>Line-up</h1>
         <DaySelector onDayChange={handleDayChange} />
@@ -63,6 +71,19 @@ const MainPage = ({ bandsData, scheduleData }) => {
           </div>
         </div>
       </div>
+      <div className={styles.festmap}>
+        {/* <Image
+          src="/images/festmap.png"
+          alt="Festival Map"
+          // layout="responsive"
+          // width={500}
+          // height={300}
+          fill
+          style={{ objectFit: "scale-down" }}
+        /> */}
+        <FestMap src="/images/festmap.png" alt="Festival Map" />
+      </div>
+      <Sponsors />
       <Footer />
     </div>
   );
