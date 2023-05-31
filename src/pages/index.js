@@ -37,7 +37,7 @@ const MainPage = ({ bandsData, scheduleData }) => {
       <Head>
         <title>ColorFOO</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/images/festival.png" />
       </Head>
       <Navbar />
       <div className={styles.spiralContainer}>
