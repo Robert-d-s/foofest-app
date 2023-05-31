@@ -14,7 +14,9 @@ const ExpirationModal = () => {
       <div className={styles.modalContent}>
         <h2>Session expired</h2>
         <p>Your booking session has expired. Please start again to complete your booking.</p>
-        <button onClick={startOver}>Start Again</button>
+        <div className={styles.btnOver}>
+          <button onClick={startOver}>OK</button>
+        </div>
       </div>
     </div>
   );
