@@ -6,7 +6,7 @@
 .campSelection {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .nextButton {
@@ -60,4 +60,9 @@
 .green {
   display: flex;
   gap: 2rem;
+  cursor: pointer;
+}
+
+.error {
+  color: rgb(250, 89, 89);
 }

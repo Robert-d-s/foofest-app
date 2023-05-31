@@ -80,7 +80,9 @@ const CampSelection = () => {
       {errors.length > 0 && (
         <div>
           {errors.map((error, index) => (
-            <p key={index}>{error}</p>
+            <p className={styles.error} key={index}>
+              {error}
+            </p>
           ))}
         </div>
       )}
