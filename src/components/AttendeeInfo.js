@@ -17,42 +17,43 @@ export default function AttendeeInfo() {
   return (
     <div className={styles.allAttendees}>
       {attendees.map((attendee, index) => (
-        <div key={index} className={styles.oneAttendee}>
-          <label className={styles.inputFieldLabel}>
-            First name
-            <input
-              className={styles.inputField}
-              type="text"
-              value={attendee.firstName}
-              onChange={(e) =>
-                handleFieldChange(index, "firstName", e.target.value)
-              }
-            />
-          </label>
-
-          <label className={styles.inputFieldLabel}>
-            Last name
-            <input
-              className={styles.inputField}
-              type="text"
-              value={attendee.lastName}
-              onChange={(e) =>
-                handleFieldChange(index, "lastName", e.target.value)
-              }
-            />
-          </label>
-
-          <label className={styles.inputFieldLabel}>
-            Email
-            <input
-              className={styles.inputField}
-              type="email"
-              value={attendee.email}
-              onChange={(e) =>
-                handleFieldChange(index, "email", e.target.value)
-              }
-            />
-          </label>
+        <div key={index} className={styles.attendeeDiv}>
+          <p>Guest nr. {index + 1}</p>
+          <div className={styles.oneAttendee}>
+            <label className={styles.inputFieldLabel}>
+              First name
+              <input
+                className={styles.inputField}
+                type="text"
+                value={attendee.firstName}
+                onChange={(e) =>
+                  handleFieldChange(index, "firstName", e.target.value)
+                }
+              />
+            </label>
+            <label className={styles.inputFieldLabel}>
+              Last name
+              <input
+                className={styles.inputField}
+                type="text"
+                value={attendee.lastName}
+                onChange={(e) =>
+                  handleFieldChange(index, "lastName", e.target.value)
+                }
+              />
+            </label>
+            <label className={styles.inputFieldLabel}>
+              Email
+              <input
+                className={styles.inputField}
+                type="email"
+                value={attendee.email}
+                onChange={(e) =>
+                  handleFieldChange(index, "email", e.target.value)
+                }
+              />
+            </label>
+          </div>
         </div>
       ))}
     </div>

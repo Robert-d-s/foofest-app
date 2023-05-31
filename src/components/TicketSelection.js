@@ -64,7 +64,7 @@ export default function TicketSelection() {
             checked={formData.ticketData.ticketType === "VIP"}
             onChange={handleTicketTypeChange}
           />
-          VIP Ticket
+          VIP Ticket + 399 dkk
         </label>
         <label className={styles.radioButton}>
           <input
@@ -73,7 +73,7 @@ export default function TicketSelection() {
             checked={formData.ticketData.ticketType === "Regular"}
             onChange={handleTicketTypeChange}
           />
-          Regular Ticket
+          Regular Ticket + 299 dkk
         </label>
       </div>
       <div className={styles.ticketsQuantity}>
@@ -93,21 +93,40 @@ export default function TicketSelection() {
         </button>
       </div>
       <div>
-        <p>Please note there is a Fixed booking fee of 99 dkk</p>
+        <p> ● Please note there is a Fixed booking fee of 99 dkk</p>
       </div>
-      <div>
-        <h2>Ticket Information</h2>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-        </p>
+      <div className={styles.ticketInfo}>
+        <div className={styles.section}>
+          <h3>VIP Ticket includes:</h3>
+          <p>● VIP entrance</p>
+          <p>
+            ● Access to exclusive stages, viewing platforms, or areas near the
+            stage
+          </p>
+          <p>● VIP camping area closer to the main festival grounds</p>
+          <p>● Complimentary welcome drink or gift upon arrival</p>
+          <p>
+            ● VIP-only food and beverage options, including specialty cocktails
+          </p>
+          <p>● Priority parking or dedicated VIP parking area</p>
+          <p>
+            ● Priority access to festival workshops, activities, or
+            meet-and-greets
+          </p>
+          <p>
+            ● Exclusive merchandise or merchandise discounts for VIP ticket
+            holders
+          </p>
+          <p>● Healthcare in emergency situations</p>
+          <p>● Internet access</p>
+        </div>
+        <div className={styles.section}>
+          <h3>Regular Ticket includes:</h3>
+          <p>● Entrance to the festival</p>
+          <p>● "Basic" camping</p>
+          <p>● Healthcare in emergency situations</p>
+          <p>● Internet access</p>
+        </div>
       </div>
     </div>
   );

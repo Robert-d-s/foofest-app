@@ -68,7 +68,7 @@ const CampSelection = () => {
           ))}
         </div>
       </label>
-      <label>
+      <label className={styles.green}>
         <input
           type="checkbox"
           checked={formData.campData.campType === "green"}

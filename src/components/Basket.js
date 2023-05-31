@@ -8,48 +8,84 @@ export default function Basket() {
   return (
     <aside className={styles.aside}>
       <div className={styles.asideDiv}>
-        <div className={styles.basketDiv}>
+        <div className={styles.sectionDiv}>
           <p>
-            <b>Ticket Type</b>
+            <b>TICKETS</b>
           </p>
-          <p className={styles.textInBasket}>
-            {formData.ticketData.ticketType}
-          </p>
+          <div className={styles.basketDiv}>
+            <p>Type:</p>
+            <p className={styles.textInBasket}>
+              {formData.ticketData.ticketType}
+            </p>
+          </div>
+          <div className={styles.basketDiv}>
+            <p>Amount:</p>
+            <p className={styles.textInBasket}>
+              {formData.ticketData.ticketQuantity}
+            </p>
+          </div>
+          <div className={styles.basketDiv}>
+            <p>Price:</p>
+            <p className={styles.textInBasket}>
+              {formData.ticketData.totalTicketPrice}
+            </p>
+          </div>
         </div>
-        <div className={styles.basketDiv}>
+        <div className={styles.sectionDiv}>
           <p>
-            <b>Ticket Amount </b>
+            <b>CAMP INFO</b>
           </p>
-          <p className={styles.textInBasket}>
-            {formData.ticketData.ticketQuantity}
+          <div className={styles.basketDiv}>
+            <p>Spot:</p>
+
+            <p className={styles.textInBasket}>{formData.campData.campSpot}</p>
+          </div>
+          <div className={styles.basketDiv}>
+            <p>Type:</p>
+
+            <p className={styles.textInBasket}>{formData.campData.campType}</p>
+          </div>
+          <div className={styles.basketDiv}>
+            <p>Price:</p>
+
+            <p className={styles.textInBasket}>{formData.campData.campPrice}</p>
+          </div>
+        </div>
+        <div className={styles.sectionDiv}>
+          <p>
+            <b>TENTS INFO</b>
           </p>
+          <div className={styles.basketDiv}>
+            <p>2 person tents:</p>
+
+            <p className={styles.textInBasket}>
+              {formData.tentData.x2tents.amount}
+            </p>
+          </div>
+          <div className={styles.basketDiv}>
+            <p>3 person tents:</p>
+
+            <p className={styles.textInBasket}>
+              {formData.tentData.x3tents.amount}
+            </p>
+          </div>
+          <div className={styles.basketDiv}>
+            <p>Price:</p>
+
+            <p className={styles.textInBasket}>
+              {formData.tentData.totalTentPrice}
+            </p>
+          </div>
         </div>
         <div className={styles.basketDiv}>
-          <b>
-            <p>Price for tickets</p>
-          </b>
+          <p>Booking fee:</p>
+
+          <p className={styles.textInBasket}>{formData.fixedFee}</p>
+        </div>
+        <div className={styles.basketDiv}>
+          <p>TOTAL PRICE:</p>
+
           <p className={styles.textInBasket}>
-            {formData.ticketData.totalTicketPrice}
-          </p>
-        </div>
-        <div className={styles.basketDiv}>
-          <b>
-            <p>Camp Spot</p>
-          </b>
-          <p className={styles.textInBasket}>{formData.campData.campSpot}</p>
-        </div>
-        <div className={styles.basketDiv}>
-          <b>
-            <p>Camp Type</p>
-          </b>
-          <p className={styles.textInBasket}>{formData.campData.campType}</p>
-        </div>
-        <div className={styles.basketDiv}>
-          <b>
-            <p>TOTAL PRICE</p>
-          </b>
-          <p className={styles.textInBasket}>
-            {" "}
             {formData.campData.campPrice +
               formData.ticketData.totalTicketPrice +
               formData.tentData.totalTentPrice +

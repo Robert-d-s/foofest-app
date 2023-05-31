@@ -2,6 +2,7 @@
   display: grid;
   margin: 5rem;
   margin-left: 10rem;
+  margin-right: 17rem;
 }
 
 .previousButton {
@@ -23,4 +24,10 @@
   width: 9rem;
   padding: 1rem;
   border-radius: 10px;
+}
+
+@media (max-width: 1100px) {
+  .wrapper {
+    margin-right: 7rem;
+  }
 }

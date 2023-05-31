@@ -21,3 +21,9 @@
   flex-direction: column;
   gap: 2rem;
 }
+
+.attendeeDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
