@@ -19,6 +19,7 @@ const initialState = {
         price: 399,
         capacity: 3,
       },
+      tentRemainder: 1,
     },
     attendees: [
       {
