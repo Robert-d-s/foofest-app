@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+
 import React, { useContext } from "react";
 import { FormContext, DispatchContext } from "../contexts/FormContext";
 import styles from "@/components/TicketSelection.module.css";
@@ -91,7 +93,7 @@ export default function TicketSelection() {
         </button>
       </div>
       <div>
-        <p>Please note there is a Fixed booking fee of 99 dkk</p>
+        <p>Please note there is a Fixed booking fee of 99 dkk&rsquo;s</p>
       </div>
       <div>
         <h2>Ticket Information</h2>
