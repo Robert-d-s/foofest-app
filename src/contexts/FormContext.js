@@ -30,6 +30,7 @@ const initialState = {
     ],
     totalPrice: 0,
     id: "",
+    modal: true,
   },
 };
 
@@ -132,8 +133,7 @@ const formReducer = (state, action) => {
     case "CALCULATE_TENT_CAPACITY":
       const { x2tents, x3tents } = state.formData.tentData;
 
-      const totalTentCapacity =
-        x2tents.amount * x2tents.capacity + x3tents.amount * x3tents.capacity;
+      const totalTentCapacity = x2tents.amount * x2tents.capacity + x3tents.amount * x3tents.capacity;
       const tentRemainder = state.formData.ticketData.ticketQuantity - totalTentCapacity;
 
       return {
@@ -147,6 +147,9 @@ const formReducer = (state, action) => {
           },
         },
       };
+
+    case "START_OVER":
+      return initialState;
 
     default:
       return state;

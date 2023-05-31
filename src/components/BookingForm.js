@@ -6,6 +6,7 @@ import Personalinfo from "../components/Personalinfo";
 import CardDetails from "../components/CardDetails";
 import ThankYou from "../components/ThankYou";
 import styles from "@/components/BookingForm.module.css";
+import ExpirationModal from "./ExpirationModal";
 export default function BookingForm() {
   const { currentStep, formData, spots } = useContext(FormContext);
   const dispatch = useContext(DispatchContext);
@@ -50,23 +51,20 @@ export default function BookingForm() {
   return (
     <div className={styles.wrapper}>
       {renderFormStep()}
+      {formData.modal && <ExpirationModal />}
       <aside className={styles.aside}>
         <div className={styles.asideDiv}>
           <div className={styles.basketDiv}>
             <p>
               <b>Ticket Type</b>
             </p>
-            <p className={styles.textInBasket}>
-              {formData.ticketData.ticketType}
-            </p>
+            <p className={styles.textInBasket}>{formData.ticketData.ticketType}</p>
           </div>
           <div className={styles.basketDiv}>
             <p>
               <b>Ticket Amount </b>
             </p>
-            <p className={styles.textInBasket}>
-              {formData.ticketData.ticketQuantity}
-            </p>
+            <p className={styles.textInBasket}>{formData.ticketData.ticketQuantity}</p>
           </div>
           <div className={styles.basketDiv}>
             <b>

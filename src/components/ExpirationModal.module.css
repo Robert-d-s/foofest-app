@@ -8,12 +8,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid pink;
   background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
+  z-index: 999;
+  /* backdrop-filter: blur(5px); */
 }
 
 .modalContent {
-  background-color: var(--clr-white);
+  background-color: var(--clr-black);
   padding: 1.5rem;
   border-radius: 10px;
   max-width: 600px;
