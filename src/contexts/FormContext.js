@@ -193,6 +193,19 @@ const formReducer = (state, action) => {
           },
         },
       };
+    case "CALCULATE_TOTAL_PRICE":
+      const totalPrice =
+        state.formData.campData.campPrice +
+        state.formData.ticketData.totalTicketPrice +
+        state.formData.tentData.totalTentPrice +
+        state.formData.fixedFee;
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          totalPrice: totalPrice,
+        },
+      };
 
     default:
       return state;

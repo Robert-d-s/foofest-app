@@ -9,6 +9,7 @@ export default function PersonalInfo() {
 
   const handleNext = () => {
     dispatch({ type: "NEXT_STEP" });
+    dispatch({ type: "CALCULATE_TOTAL_PRICE" });
   };
   const handlePrevious = () => {
     dispatch({ type: "PREVIOUS_STEP" });

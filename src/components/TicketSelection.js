@@ -93,7 +93,7 @@ export default function TicketSelection() {
         </button>
       </div>
       <div>
-        <p>Please note there is a Fixed booking fee of 99 dkk&rsquo;s</p>
+        <p>Please note there is a Fixed booking fee of 99 dkk</p>
       </div>
       <div>
         <h2>Ticket Information</h2>

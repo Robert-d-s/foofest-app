@@ -5,6 +5,7 @@ import CampSelection from "../components/CampSelection";
 import Personalinfo from "../components/Personalinfo";
 import CardDetails from "../components/CardDetails";
 import ThankYou from "../components/ThankYou";
+import Basket from "../components/Basket";
 import styles from "@/components/BookingForm.module.css";
 export default function BookingForm() {
   const { currentStep, formData, spots } = useContext(FormContext);
@@ -45,58 +46,7 @@ export default function BookingForm() {
   return (
     <div className={styles.wrapper}>
       {renderFormStep()}
-
-      <aside className={styles.aside}>
-        <div className={styles.asideDiv}>
-          <div className={styles.basketDiv}>
-            <p>
-              <b>Ticket Type</b>
-            </p>
-            <p className={styles.textInBasket}>
-              {formData.ticketData.ticketType}
-            </p>
-          </div>
-          <div className={styles.basketDiv}>
-            <p>
-              <b>Ticket Amount </b>
-            </p>
-            <p className={styles.textInBasket}>
-              {formData.ticketData.ticketQuantity}
-            </p>
-          </div>
-          <div className={styles.basketDiv}>
-            <b>
-              <p>Price for tickets</p>
-            </b>
-            <p className={styles.textInBasket}>
-              {formData.ticketData.totalTicketPrice}
-            </p>
-          </div>
-          <div className={styles.basketDiv}>
-            <b>
-              <p>Camp Spot</p>
-            </b>
-            <p className={styles.textInBasket}>{formData.campData.campSpot}</p>
-          </div>
-          <div className={styles.basketDiv}>
-            <b>
-              <p>Camp Type</p>
-            </b>
-            <p className={styles.textInBasket}>{formData.campData.campType}</p>
-          </div>
-          <div className={styles.basketDiv}>
-            <b>
-              <p>TOTAL PRICE</p>
-            </b>
-            <p className={styles.textInBasket}>
-              {formData.campData.campPrice +
-                formData.ticketData.totalTicketPrice +
-                formData.tentData.totalTentPrice +
-                formData.fixedFee}
-            </p>
-          </div>
-        </div>
-      </aside>
+      <Basket />
     </div>
   );
 }
