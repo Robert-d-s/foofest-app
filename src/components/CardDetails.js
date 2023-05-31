@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
 import styles from "@/components/CardDetails.module.css";
-import { DispatchContext } from "../contexts/FormContext";
+import { FormContext, DispatchContext } from "../contexts/FormContext";
 
 import Cards from "react-credit-cards-2";
 import "react-credit-cards-2/dist/es/styles-compiled.css";
 
 const PaymentForm = () => {
+  const { formData } = useContext(FormContext);
   const dispatch = useContext(DispatchContext);
   const [state, setState] = useState({
     number: "",
@@ -14,8 +15,50 @@ const PaymentForm = () => {
     name: "",
     focus: "",
   });
+
+  function fulfillReservation() {
+    const payload = {
+      id: formData.id,
+    };
+    const supabasePayload = {
+      ticketType: formData.ticketData.ticketType,
+      ticketQuantity: formData.ticketData.ticketQuantity,
+      campSpot: formData.campData.campSpot,
+      campType: formData.campData.campType,
+      x2tents: formData.tentData.x2tents.amount,
+      x3tents: formData.tentData.x3tents.amount,
+      attendees: formData.attendees,
+      totalPrice: formData.totalPrice,
+    };
+    Promise.all([
+      fetch("https://hollow-glowing-gladiolus.glitch.me/fullfill-reservation", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+        }),
+      fetch("/api/final-post", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(supabasePayload),
+      })
+        .then((response) => response.json())
+        .then((supabaseData) => {
+          console.log(supabaseData);
+        }),
+    ]);
+  }
+
   const handleNext = () => {
     dispatch({ type: "NEXT_STEP" });
+    fulfillReservation();
   };
 
   const handlePrevious = () => {
