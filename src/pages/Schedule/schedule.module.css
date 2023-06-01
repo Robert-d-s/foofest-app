@@ -5,32 +5,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* gap: 1rem; */
   padding-bottom: 2rem;
 }
 
-/*header Container*/
-/* .header {
-  width: 100%;
-  text-align: center;
-  font-family: var(--font-thicc);
-  font-size: 4.209rem;
-  letter-spacing: 0.2rem;
-  border: 1px solid yellow;
-  color: var(--clr-white);
-} */
-
 .programBox {
   padding: 4rem 0rem;
-  /* width: 100%; */
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  /* gap: 2rem; */
   align-items: center;
   justify-content: center;
-  /* border: 1px solid pink; */
-  /* background: var(--clr-black); */
 }
 
 /*Line-up Header*/
@@ -44,18 +28,6 @@
   padding: 0;
 }
 
-/*Buttons Container*/
-.btnBox {
-  text-align: center;
-  width: 100%;
-  border: 1px solid blue; /*remove this later*/
-  padding: 0.5rem 0;
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  justify-content: center;
-}
-
 :is(.btnBox) button {
   padding: 0.3rem 1rem;
   text-align: center;
@@ -64,11 +36,6 @@
   border-radius: 4px;
   border: none;
   transition: 0.2s all ease-in;
-}
-
-:is(.btnBox) button:hover {
-  background-color: pink; /*change this later*/
-  transform: scale(1.05);
 }
 
 /*Populates the Stages*/
@@ -88,9 +55,7 @@
 }
 
 .actBox {
-  /* border: 1px solid var(--clr-hover); */
   padding: 0.5rem 0.1rem;
-
   /* for cancelation - optional */
   position: relative;
   overflow: hidden;
@@ -99,7 +64,7 @@
 
 /*bands and times*/
 :is(.actBox) p {
-  padding-bottom: 0.1rem;
+  padding-bottom: 0.2rem;
   font-size: 1.25rem;
 }
 
@@ -115,7 +80,16 @@
 }
 /* for cancelation - optional */
 
-@media (max-width: 750px) {
+.actBox {
+  /* text-align: center; */
+  border-bottom: 1px solid gray;
+}
+.actBox:last-child {
+  border: none;
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 1000px) {
   .programBox {
     flex-direction: column;
     padding-bottom: 2rem;
@@ -137,15 +111,10 @@
 
   .actBox {
     text-align: center;
-    border-bottom: 1px solid var(--clr-white);
-  }
-  .actBox:last-child {
-    border: none;
-    padding-bottom: 1rem;
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 540px) {
   .programBox {
     flex-direction: column;
     padding-bottom: 2rem;
