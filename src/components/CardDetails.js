@@ -16,7 +16,7 @@ const PaymentForm = () => {
     focus: "",
   });
 
-  function fulfillReservation() {
+  async function fulfillReservation() {
     const payload = {
       id: formData.id,
     };
@@ -30,7 +30,7 @@ const PaymentForm = () => {
       attendees: formData.attendees,
       totalPrice: formData.totalPrice,
     };
-    Promise.all([
+    await Promise.all([
       fetch("https://hollow-glowing-gladiolus.glitch.me/fullfill-reservation", {
         method: "POST",
         headers: {
@@ -41,6 +41,9 @@ const PaymentForm = () => {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
+        })
+        .catch((error) => {
+          console.log("Error cought on first fetch:", error);
         }),
       fetch("/api/final-post", {
         method: "POST",
@@ -52,12 +55,16 @@ const PaymentForm = () => {
         .then((response) => response.json())
         .then((supabaseData) => {
           console.log(supabaseData);
+        })
+        .catch((error) => {
+          console.log("Error cought on second fetch:", error);
         }),
     ]);
   }
 
   const handleNext = () => {
     dispatch({ type: "NEXT_STEP" });
+    dispatch({ type: "STOP_TIMER" });
     fulfillReservation();
   };
 
