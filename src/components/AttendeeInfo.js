@@ -5,7 +5,7 @@ import styles from "../components/AttendeeInfo.module.css";
 export default function AttendeeInfo() {
   const { formData } = useContext(FormContext);
   const dispatch = useContext(DispatchContext);
-  const { attendees } = formData; // Destructure the attendees array from formData
+  const { attendees } = formData;
 
   const handleFieldChange = (index, field, value) => {
     dispatch({

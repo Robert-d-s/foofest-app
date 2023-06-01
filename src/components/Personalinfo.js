@@ -15,17 +15,6 @@ export default function PersonalInfo() {
     dispatch({ type: "PREVIOUS_STEP" });
   };
 
-  /* --------THIS NEEDS TO BE FIXED-----*/
-
-  const { ticketQuantity } = formData;
-  const dispatchAddAttendee = () => {
-    dispatch({ type: "ADD_ATTENDEE" });
-  };
-  /* for (let i = 0; i < ticketQuantity; i++) {
-    dispatchAddAttendee();
-  } */
-  /* -------UP UNTIL HERE-----*/
-
   return (
     <div className={styles.wrapper}>
       <h2>Personal Information</h2>

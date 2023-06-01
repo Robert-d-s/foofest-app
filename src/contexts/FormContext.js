@@ -116,17 +116,6 @@ const formReducer = (state, action) => {
         },
       };
 
-    case "ADD_ATTENDEE":
-      return {
-        ...state,
-        formData: {
-          ...state.formData,
-          attendees: [
-            ...state.formData.attendees,
-            { firstName: "", lastName: "", email: "" },
-          ],
-        },
-      };
     case "SET_AREAS":
       return { ...state, spots: action.payload };
 
