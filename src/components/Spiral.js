@@ -110,12 +110,8 @@ export default function PolyrhythmicSpiral() {
 
         arcs.forEach((arc, index) => {
           const radius = base.initialRadius + base.spacing * index;
-          const gradientPosition = ((frame - index * 5) % 360) / 360;
-
           const distance = elapsedTime >= 0 ? elapsedTime * arc.velocity : 0;
           const angle = (Math.PI + distance) % base.maxAngle;
-          const position = calculatePositionOnArc(center, radius, angle);
-
           const colorPosition = ((frame - index * 10) % 360) / 360;
 
           let red, green, blue;
@@ -166,14 +162,7 @@ export default function PolyrhythmicSpiral() {
           drawPointOnArc(center, radius, base.circleRadius, angle);
         });
 
-        // frame += (1000 - gradientSliderValue) / 500;
         frame += gradientSliderValue / 500;
-
-        // pen.font = "75px Arial";
-        // pen.fillStyle = "#A6C48A";
-        // pen.textAlign = "center";
-        // pen.fillText("ColorFOO", center.x, center.y);
-        // pen.fillText("Festival!", center.x, center.y + 75);
 
         requestAnimationFrame(draw);
       };
@@ -196,7 +185,7 @@ export default function PolyrhythmicSpiral() {
       <input
         type="range"
         min="1"
-        max="1000"
+        max="960"
         value={circleSliderValue}
         onChange={(e) => setCircleSliderValue(Number(e.target.value))}
       />
