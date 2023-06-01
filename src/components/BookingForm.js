@@ -1,23 +1,32 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FormContext, DispatchContext } from "../contexts/FormContext";
 import TicketSelection from "../components/TicketSelection";
 import CampSelection from "../components/CampSelection";
 import Personalinfo from "../components/Personalinfo";
-import AttendeeInfo from "./AttendeeInfo";
-
-export default function BookingForm({ spots }) {
-  const { currentStep, formData } = useContext(FormContext);
+import CardDetails from "../components/CardDetails";
+import ThankYou from "../components/ThankYou";
+import Basket from "../components/Basket";
+import Countdown from "./Countdown";
+import styles from "@/components/BookingForm.module.css";
+import ExpirationModal from "./ExpirationModal";
+export default function BookingForm() {
+  const { currentStep, formData, spots, expirationDate } =
+    useContext(FormContext);
   const dispatch = useContext(DispatchContext);
-  const totalSteps = 4;
 
-  const handlePrevious = () => {
-    dispatch({ type: "PREVIOUS_STEP" });
-  };
-
-  const handleSubmit = () => {
-    // Perform the POST request to '/fulfill-reservation' with formData
-    console.log("Form data:", formData);
-  };
+  useEffect(() => {
+    fetch("https://hollow-glowing-gladiolus.glitch.me/available-spots")
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch({
+          type: "SET_AREAS",
+          payload: data,
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+      });
+  }, [dispatch]);
 
   const renderFormStep = () => {
     switch (currentStep) {
@@ -27,24 +36,21 @@ export default function BookingForm({ spots }) {
         return <CampSelection spots={spots} />;
       case 3:
         return <Personalinfo />;
+      case 4:
+        return <CardDetails />;
+      case 5:
+        return <ThankYou />;
       default:
         return null;
     }
   };
 
   return (
-    <div>
+    <div className={styles.wrapper}>
+      {expirationDate && <Countdown />}
       {renderFormStep()}
-      <div>
-        {currentStep > 1 && <button onClick={handlePrevious}>Previous</button>}
-        {currentStep === totalSteps && (
-          <div>
-            <h2>Final Step</h2>
-            {/* Render the final step component */}
-            <button onClick={handleSubmit}>Submit</button>
-          </div>
-        )}
-      </div>
+      {formData.modal && <ExpirationModal />}
+      <Basket />
     </div>
   );
 }
