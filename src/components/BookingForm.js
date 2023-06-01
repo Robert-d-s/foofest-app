@@ -5,11 +5,11 @@ import CampSelection from "../components/CampSelection";
 import Personalinfo from "../components/Personalinfo";
 import CardDetails from "../components/CardDetails";
 import ThankYou from "../components/ThankYou";
+import Countdown from "./Countdown";
 import styles from "@/components/BookingForm.module.css";
 export default function BookingForm() {
-  const { currentStep, formData, spots } = useContext(FormContext);
+  const { currentStep, formData, spots, expirationDate } = useContext(FormContext);
   const dispatch = useContext(DispatchContext);
-  const totalSteps = 5;
 
   useEffect(() => {
     fetch("https://hollow-glowing-gladiolus.glitch.me/available-spots")
@@ -50,23 +50,20 @@ export default function BookingForm() {
   return (
     <div className={styles.wrapper}>
       {renderFormStep()}
+      {expirationDate && <Countdown />}
       <aside className={styles.aside}>
         <div className={styles.asideDiv}>
           <div className={styles.basketDiv}>
             <p>
               <b>Ticket Type</b>
             </p>
-            <p className={styles.textInBasket}>
-              {formData.ticketData.ticketType}
-            </p>
+            <p className={styles.textInBasket}>{formData.ticketData.ticketType}</p>
           </div>
           <div className={styles.basketDiv}>
             <p>
               <b>Ticket Amount </b>
             </p>
-            <p className={styles.textInBasket}>
-              {formData.ticketData.ticketQuantity}
-            </p>
+            <p className={styles.textInBasket}>{formData.ticketData.ticketQuantity}</p>
           </div>
           <div className={styles.basketDiv}>
             <b>

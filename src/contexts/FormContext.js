@@ -30,7 +30,9 @@ const initialState = {
     ],
     totalPrice: 0,
     id: "",
+    modal: false,
   },
+  expirationDate: null,
 };
 
 const formReducer = (state, action) => {
@@ -59,6 +61,12 @@ const formReducer = (state, action) => {
               },
             },
           },
+        };
+      }
+      if (section === "expirationDate") {
+        return {
+          ...state,
+          [section]: value,
         };
       }
       return {
@@ -145,6 +153,15 @@ const formReducer = (state, action) => {
             totalTentCapacity,
             tentRemainder,
           },
+        },
+      };
+
+    case "COUNTDOWN_EXPIRED":
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          modal: true,
         },
       };
 

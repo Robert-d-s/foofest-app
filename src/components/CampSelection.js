@@ -5,7 +5,7 @@ import TentSelection from "./TentSelection";
 import styles from "@/components/CampSelection.module.css";
 
 const CampSelection = () => {
-  const { formData, spots } = useContext(FormContext);
+  const { formData, spots, expirationDate } = useContext(FormContext);
   const dispatch = useContext(DispatchContext);
   const [errors, setErrors] = useState([]);
 
@@ -38,13 +38,17 @@ const CampSelection = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        const fetchedId = data.id;
-        dispatch({
-          type: "UPDATE_FIELD",
-          payload: { section: "id", value: fetchedId },
-        });
-        console.log(formData.id);
+        // console.log(data);
+        if (!formData.id) {
+          const fetchedId = data.id;
+
+          dispatch({
+            type: "UPDATE_FIELD",
+            payload: { section: "id", value: fetchedId },
+          });
+        }
+
+        // console.log(formData.id);
       })
       .catch((error) => {
         console.log("Error occurred while fetching or updating id:", error);
@@ -65,7 +69,16 @@ const CampSelection = () => {
     if (errors.length === 0) {
       dispatch({ type: "NEXT_STEP" });
       dispatch({ type: "CREATE_ATTENDEE_STRUCTURE" });
-      reserveSpot();
+      if (!expirationDate) {
+        dispatch({
+          type: "UPDATE_FIELD",
+          payload: {
+            section: "expirationDate",
+            value: Date.now() + 300000,
+          },
+        });
+        reserveSpot();
+      }
     } else {
       setErrors(errors);
     }
