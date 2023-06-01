@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { FormContext, DispatchContext } from "../contexts/FormContext";
+import styles from "@/components/TentSelection.module.css";
 
 export default function TentSelection() {
   const { formData } = useContext(FormContext);
@@ -17,6 +18,9 @@ export default function TentSelection() {
     dispatch({
       type: "CALCULATE_TENT_CAPACITY",
     });
+    dispatch({
+      type: "CALCULATE_TENT_PRICE",
+    });
   };
 
   const removeTent = (tentType) => {
@@ -32,15 +36,19 @@ export default function TentSelection() {
       dispatch({
         type: "CALCULATE_TENT_CAPACITY",
       });
+
+      dispatch({
+        type: "CALCULATE_TENT_PRICE",
+      });
     }
   };
 
   return (
-    <div>
+    <div className={styles.tents}>
       <h2>Order Tents</h2>
 
-      <div>
-        <div>
+      <div className={styles.oneTent}>
+        <div className={styles.buttonsDiv}>
           <button onClick={() => removeTent("x2tents")}>-</button>
           <span>{formData.tentData.x2tents.amount}</span>
           <button
@@ -51,16 +59,16 @@ export default function TentSelection() {
           </button>
         </div>
         <p>2 persons tent {formData.tentData.x2tents.price},-</p>
-        <p>Total Price: {formData.tentData.x2tents.amount * formData.tentData.x2tents.price},-</p>
       </div>
-      <div>
-        <div>
+      <div className={styles.oneTent}>
+        <div className={styles.buttonsDiv}>
           <button onClick={() => removeTent("x3tents")}>-</button>
           <span>{formData.tentData.x3tents.amount}</span>
           <button
             onClick={() => addTent("x3tents")}
             disabled={
-              formData.tentData.tentRemainder === 0 || formData.tentData.tentRemainder <= 1
+              formData.tentData.tentRemainder === 0 ||
+              formData.tentData.tentRemainder <= 1
                 ? true
                 : false
             }
@@ -69,7 +77,12 @@ export default function TentSelection() {
           </button>
         </div>
         <p>3 persons tent {formData.tentData.x3tents.price},-</p>
-        <p>Total Price: {formData.tentData.x3tents.amount * formData.tentData.x3tents.price},-</p>
+      </div>
+      <div className={styles.oneTent}>
+        <p>
+          <b>Total Price for tents:</b>
+        </p>
+        <p> {formData.tentData.totalTentPrice}</p>
       </div>
     </div>
   );

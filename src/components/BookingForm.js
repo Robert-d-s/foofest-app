@@ -5,11 +5,13 @@ import CampSelection from "../components/CampSelection";
 import Personalinfo from "../components/Personalinfo";
 import CardDetails from "../components/CardDetails";
 import ThankYou from "../components/ThankYou";
+import Basket from "../components/Basket";
 import Countdown from "./Countdown";
 import styles from "@/components/BookingForm.module.css";
 import ExpirationModal from "./ExpirationModal";
 export default function BookingForm() {
-  const { currentStep, formData, spots, expirationDate } = useContext(FormContext);
+  const { currentStep, formData, spots, expirationDate } =
+    useContext(FormContext);
   const dispatch = useContext(DispatchContext);
 
   useEffect(() => {
@@ -25,11 +27,6 @@ export default function BookingForm() {
         console.error("Error fetching data: ", error);
       });
   }, [dispatch]);
-
-  const handleSubmit = () => {
-    // Perform the POST request to '/fulfill-reservation' with formData
-    console.log("Form data:", formData);
-  };
 
   const renderFormStep = () => {
     switch (currentStep) {
@@ -53,42 +50,7 @@ export default function BookingForm() {
       {expirationDate && <Countdown />}
       {renderFormStep()}
       {formData.modal && <ExpirationModal />}
-
-      <aside className={styles.aside}>
-        <div className={styles.asideDiv}>
-          <div className={styles.basketDiv}>
-            <p>
-              <b>Ticket Type</b>
-            </p>
-            <p className={styles.textInBasket}>{formData.ticketData.ticketType}</p>
-          </div>
-          <div className={styles.basketDiv}>
-            <p>
-              <b>Ticket Amount </b>
-            </p>
-            <p className={styles.textInBasket}>{formData.ticketData.ticketQuantity}</p>
-          </div>
-          <div className={styles.basketDiv}>
-            <b>
-              <p>Camp Spot</p>
-            </b>
-            <p className={styles.textInBasket}>{formData.campData.campSpot}</p>
-          </div>
-          <div className={styles.basketDiv}>
-            <b>
-              <p>Camp Type</p>
-            </b>
-            <p className={styles.textInBasket}>{formData.campData.campType}</p>
-          </div>
-        </div>
-      </aside>
-      <div>
-        {currentStep === 4 && (
-          <div>
-            <button onClick={handleSubmit}>Submit</button>
-          </div>
-        )}
-      </div>
+      <Basket />
     </div>
   );
 }

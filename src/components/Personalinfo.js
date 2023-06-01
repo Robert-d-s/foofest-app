@@ -9,21 +9,11 @@ export default function PersonalInfo() {
 
   const handleNext = () => {
     dispatch({ type: "NEXT_STEP" });
+    dispatch({ type: "CALCULATE_TOTAL_PRICE" });
   };
   const handlePrevious = () => {
     dispatch({ type: "PREVIOUS_STEP" });
   };
-
-  /* --------THIS NEEDS TO BE FIXED-----*/
-
-  const { ticketQuantity } = formData;
-  const dispatchAddAttendee = () => {
-    dispatch({ type: "ADD_ATTENDEE" });
-  };
-  /* for (let i = 0; i < ticketQuantity; i++) {
-    dispatchAddAttendee();
-  } */
-  /* -------UP UNTIL HERE-----*/
 
   return (
     <div className={styles.wrapper}>

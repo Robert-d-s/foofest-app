@@ -1,12 +1,12 @@
 .CampDivs {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 2rem;
 }
 .campSelection {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .nextButton {
@@ -55,4 +55,14 @@
   display: flex;
   justify-content: space-between;
   margin-right: 20rem;
+}
+
+.green {
+  display: flex;
+  gap: 2rem;
+  cursor: pointer;
+}
+
+.error {
+  color: rgb(250, 89, 89);
 }

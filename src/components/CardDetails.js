@@ -134,7 +134,7 @@ const PaymentForm = () => {
             name="number"
             placeholder="XXXX XXXX XXXX XXXX"
             value={state.number}
-            maxlength="16"
+            maxLength="16"
             onChange={handleInputChange}
             onFocus={handleInputFocus}
           />

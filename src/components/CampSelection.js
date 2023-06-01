@@ -23,6 +23,10 @@ const CampSelection = () => {
       type: "UPDATE_FIELD",
       payload: { section: "campData", field: "campType", value: campType },
     });
+    dispatch({
+      type: "UPDATE_CAMPTYPE_PRICE",
+      payload: { campType: campType },
+    });
   };
 
   function reserveSpot() {
@@ -102,22 +106,25 @@ const CampSelection = () => {
           ))}
         </div>
       </label>
-      <label>
+      <label className={styles.green}>
         <input
           type="checkbox"
           checked={formData.campData.campType === "green"}
           onChange={handleCampTypeChange}
         />
-        Go green
+        GO GREEN +249 ,-
       </label>
       <TentSelection />
       {errors.length > 0 && (
         <div>
           {errors.map((error, index) => (
-            <p key={index}>{error}</p>
+            <p className={styles.error} key={index}>
+              {error}
+            </p>
           ))}
         </div>
       )}
+
       <div className={styles.twoButtons}>
         <button className={styles.previousButton} onClick={handlePrevious}>
           ← &nbsp; Previous
