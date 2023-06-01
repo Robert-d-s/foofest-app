@@ -28,3 +28,9 @@
 
   margin: 0;
 }
+
+@media (max-width: 900px) {
+  .campCard {
+    height: 5rem;
+  }
+}

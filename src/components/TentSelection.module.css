@@ -23,3 +23,17 @@
   padding-top: 2rem;
   border-top: 1px solid white;
 }
+
+@media (max-width: 900px) {
+  .buttonsDiv {
+    width: 5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .tents {
+    font-size: 0.9rem;
+    gap: 1.5rem;
+    padding-top: 1rem;
+  }
+}

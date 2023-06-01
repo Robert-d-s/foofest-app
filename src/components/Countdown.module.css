@@ -1,0 +1,8 @@
+.countdown {
+  padding: 0.6rem;
+
+  color: rgb(162, 255, 162);
+  border: 1px solid;
+  max-width: fit-content;
+  margin-bottom: 1rem;
+}

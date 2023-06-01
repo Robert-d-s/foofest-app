@@ -15,16 +15,18 @@ export default function AttendeeInfo() {
   };
 
   return (
-    <div className={styles.allAttendees}>
+    <form className={styles.allAttendees}>
       {attendees.map((attendee, index) => (
         <div key={index} className={styles.attendeeDiv}>
           <p>Guest nr. {index + 1}</p>
           <div className={styles.oneAttendee}>
             <label className={styles.inputFieldLabel}>
-              First name
+              First name *
               <input
                 className={styles.inputField}
                 type="text"
+                required
+                placeholder="John"
                 value={attendee.firstName}
                 onChange={(e) =>
                   handleFieldChange(index, "firstName", e.target.value)
@@ -32,10 +34,12 @@ export default function AttendeeInfo() {
               />
             </label>
             <label className={styles.inputFieldLabel}>
-              Last name
+              Last name *
               <input
                 className={styles.inputField}
                 type="text"
+                required
+                placeholder="Smith"
                 value={attendee.lastName}
                 onChange={(e) =>
                   handleFieldChange(index, "lastName", e.target.value)
@@ -43,10 +47,12 @@ export default function AttendeeInfo() {
               />
             </label>
             <label className={styles.inputFieldLabel}>
-              Email
+              Email *
               <input
                 className={styles.inputField}
                 type="email"
+                required
+                placeholder="john.smith@email.com"
                 value={attendee.email}
                 onChange={(e) =>
                   handleFieldChange(index, "email", e.target.value)
@@ -56,6 +62,6 @@ export default function AttendeeInfo() {
           </div>
         </div>
       ))}
-    </div>
+    </form>
   );
 }

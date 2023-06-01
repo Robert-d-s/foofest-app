@@ -92,6 +92,7 @@ const PaymentForm = () => {
   return (
     <div className={styles.wrapperForm}>
       <Cards
+        className={styles.remove}
         number={state.number}
         expiry={state.expiry}
         cvc={state.cvc}
@@ -100,7 +101,7 @@ const PaymentForm = () => {
       />
       <form className={styles.cardDetailsForm}>
         <label className={styles.inputFieldLabel}>
-          Card Owner
+          Card Owner *
           <input
             className={styles.inputField}
             type="text"
@@ -114,7 +115,7 @@ const PaymentForm = () => {
 
         <label className={styles.inputFieldLabel}>
           <div className={styles.labelDivIcon}>
-            <p> Card Number</p>
+            <p> Card Number *</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -141,7 +142,7 @@ const PaymentForm = () => {
         </label>
         <div className={styles.inputAndCvc}>
           <label className={styles.inputFieldLabel}>
-            Expiry Date
+            Expiry Date *
             <input
               className={styles.inputExpiry}
               type="number"
@@ -154,7 +155,7 @@ const PaymentForm = () => {
           </label>
           <label className={styles.inputFieldLabel}>
             <div className={styles.labelDivIcon}>
-              <p> CVC</p>
+              <p> CVC *</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"

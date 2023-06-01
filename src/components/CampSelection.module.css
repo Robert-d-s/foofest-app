@@ -66,3 +66,62 @@
 .error {
   color: rgb(250, 89, 89);
 }
+
+@media (max-width: 1100px) {
+  .wrapper {
+    margin: 2rem;
+  }
+  .twoButtons {
+    margin-right: 6rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .CampDivs {
+    font-size: 0.8rem;
+    gap: 1rem;
+  }
+  .twoButtons {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .CampDivs {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    margin: 1rem;
+
+    font-size: 0.8rem;
+  }
+
+  .nextButton {
+    border: 1px solid white;
+
+    width: 7rem;
+    padding: 0.7rem;
+    border-radius: 10px;
+  }
+  .nextButton:hover {
+    width: 7rem;
+    padding: 0.7rem;
+    border: 1px solid white;
+  }
+
+  .previousButton {
+    border: 1px solid white;
+
+    width: 7rem;
+    padding: 0.7rem;
+    border-radius: 10px;
+  }
+  .previousButton:hover {
+    width: 7rem;
+    padding: 0.7rem;
+    border: 1px solid white;
+  }
+}

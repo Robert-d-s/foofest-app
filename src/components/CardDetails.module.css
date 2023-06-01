@@ -5,6 +5,9 @@
   gap: 3rem;
 }
 
+.remove {
+  display: none;
+}
 .inputField {
   height: 2.5rem;
   width: 18rem;
@@ -97,4 +100,60 @@
   justify-content: space-between;
   margin-top: 2rem;
   gap: 15rem;
+}
+
+@media (max-width: 1100px) {
+  .twoButtons {
+    margin-right: 6rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .twoButtons {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapperForm {
+    gap: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .nextButton {
+    border: 1px solid white;
+
+    width: 7rem;
+    padding: 0.7rem;
+    border-radius: 10px;
+  }
+  .nextButton:hover {
+    width: 7rem;
+    padding: 0.7rem;
+    border: 1px solid white;
+  }
+
+  .previousButton {
+    border: 1px solid white;
+
+    width: 7rem;
+    padding: 0.7rem;
+    border-radius: 10px;
+  }
+  .previousButton:hover {
+    width: 7rem;
+    padding: 0.7rem;
+    border: 1px solid white;
+  }
+
+  .inputField {
+    height: 1.5rem;
+  }
+  .inputExpiry {
+    height: 1.5rem;
+  }
+
+  .inputCvc {
+    height: 1.5rem;
+  }
 }

@@ -26,7 +26,11 @@
   font-size: 1.125rem;
 }
 
-:is(.modalContent h2, p) {
+.modalContent h2 {
+  padding-bottom: 1rem;
+}
+
+.modalContent p {
   padding-bottom: 1rem;
 }
 

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { FormContext, DispatchContext } from "../contexts/FormContext";
-
+import styles from "@/components/Countdown.module.css";
 export default function Countdown() {
   const { expirationDate } = useContext(FormContext);
   const dispatch = useContext(DispatchContext);
@@ -11,7 +11,9 @@ export default function Countdown() {
     const intervalId = setInterval(() => {
       const currentTime = new Date().getTime();
       const timeRemained = expirationDateTime - currentTime;
-      const minutes = Math.floor((timeRemained % (1000 * 60 * 60)) / (1000 * 60));
+      const minutes = Math.floor(
+        (timeRemained % (1000 * 60 * 60)) / (1000 * 60)
+      );
       const seconds = Math.floor((timeRemained % (1000 * 60)) / 1000);
 
       if (currentTime >= expirationDate) {
@@ -28,7 +30,7 @@ export default function Countdown() {
 
   return (
     <div>
-      <p>Reservation expires in: {countdown}</p>
+      <p className={styles.countdown}>Reservation expires in: {countdown}</p>
     </div>
   );
 }
