@@ -92,10 +92,6 @@ const formReducer = (state, action) => {
       return {
         ...state,
         currentStep: state.currentStep + 1,
-        formData: {
-          ...state.formData,
-          ...action.payload,
-        },
       };
 
     case "PREVIOUS_STEP":
@@ -142,9 +138,7 @@ const formReducer = (state, action) => {
       const ticketQuantity = state.formData.ticketData.ticketQuantity;
 
       const totalTicketPrice =
-        ticketType === "VIP"
-          ? 399 * parseInt(ticketQuantity)
-          : 299 * parseInt(ticketQuantity);
+        ticketType === "VIP" ? 399 * parseInt(ticketQuantity) : 299 * parseInt(ticketQuantity);
       return {
         ...state,
         formData: {
@@ -169,8 +163,7 @@ const formReducer = (state, action) => {
         },
       };
     case "CALCULATE_TENT_PRICE":
-      const totalTentPrice =
-        x2tents.amount * x2tents.price + x3tents.amount * x3tents.price;
+      const totalTentPrice = x2tents.amount * x2tents.price + x3tents.amount * x3tents.price;
 
       return {
         ...state,
@@ -186,8 +179,7 @@ const formReducer = (state, action) => {
     case "CALCULATE_TENT_CAPACITY":
       const totalTentCapacity =
         x2tents.amount * x2tents.capacity + x3tents.amount * x3tents.capacity;
-      const tentRemainder =
-        state.formData.ticketData.ticketQuantity - totalTentCapacity;
+      const tentRemainder = state.formData.ticketData.ticketQuantity - totalTentCapacity;
 
       return {
         ...state,
@@ -225,6 +217,11 @@ const formReducer = (state, action) => {
 
     case "START_OVER":
       return initialState;
+    case "STOP_TIMER":
+      return {
+        ...state,
+        expirationDate: null,
+      };
 
     default:
       return state;
@@ -235,9 +232,7 @@ export const FormProvider = ({ children }) => {
   const [state, dispatch] = useReducer(formReducer, initialState);
   return (
     <FormContext.Provider value={state}>
-      <DispatchContext.Provider value={dispatch}>
-        {children}
-      </DispatchContext.Provider>
+      <DispatchContext.Provider value={dispatch}>{children}</DispatchContext.Provider>
     </FormContext.Provider>
   );
 };
