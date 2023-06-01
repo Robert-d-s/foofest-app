@@ -27,7 +27,7 @@ export default function Basket() {
           <div className={styles.basketDiv}>
             <p>Price:</p>
             <p className={styles.textInBasket}>
-              {formData.ticketData.totalTicketPrice}
+              {formData.ticketData.totalTicketPrice},-
             </p>
           </div>
         </div>
@@ -48,7 +48,9 @@ export default function Basket() {
           <div className={styles.basketDiv}>
             <p>Price:</p>
 
-            <p className={styles.textInBasket}>{formData.campData.campPrice}</p>
+            <p className={styles.textInBasket}>
+              {formData.campData.campPrice},-
+            </p>
           </div>
         </div>
         <div className={styles.sectionDiv}>
@@ -73,23 +75,26 @@ export default function Basket() {
             <p>Price:</p>
 
             <p className={styles.textInBasket}>
-              {formData.tentData.totalTentPrice}
+              {formData.tentData.totalTentPrice},-
             </p>
           </div>
         </div>
         <div className={styles.basketDiv}>
           <p>Booking fee:</p>
 
-          <p className={styles.textInBasket}>{formData.fixedFee}</p>
+          <p className={styles.textInBasket}>{formData.fixedFee},-</p>
         </div>
         <div className={styles.basketDiv}>
-          <p>TOTAL PRICE:</p>
+          <p>
+            <b>TOTAL PRICE:</b>
+          </p>
 
           <p className={styles.textInBasket}>
             {formData.campData.campPrice +
               formData.ticketData.totalTicketPrice +
               formData.tentData.totalTentPrice +
               formData.fixedFee}
+            ,-
           </p>
         </div>
       </div>

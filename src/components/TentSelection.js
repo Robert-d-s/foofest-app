@@ -45,7 +45,7 @@ export default function TentSelection() {
 
   return (
     <div className={styles.tents}>
-      <h2>Order Tents</h2>
+      <h2>Order Tents *</h2>
 
       <div className={styles.oneTent}>
         <div className={styles.buttonsDiv}>
@@ -82,7 +82,7 @@ export default function TentSelection() {
         <p>
           <b>Total Price for tents:</b>
         </p>
-        <p> {formData.tentData.totalTentPrice}</p>
+        <p> {formData.tentData.totalTentPrice},-</p>
       </div>
     </div>
   );

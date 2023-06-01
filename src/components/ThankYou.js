@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
+import { useRouter } from "next/router";
 import { FormContext, DispatchContext } from "../contexts/FormContext";
 import styles from "@/components/ThankYou.module.css";
 export default function TicketSelection() {
   const { formData } = useContext(FormContext);
-  const dispatch = useContext(DispatchContext);
 
-  const handleNext = () => {
-    dispatch({ type: "FINAL_STEP" });
-  };
+  const router = useRouter();
 
   return (
     <div className={styles.wrapper}>
@@ -27,7 +25,7 @@ export default function TicketSelection() {
       <img className={styles.ticket} src="../images/ticket1.png" alt="Ticket" />
 
       <div>
-        <button className={styles.nextButton} onClick={handleNext}>
+        <button className={styles.nextButton} onClick={() => router.push("/")}>
           Home
         </button>
       </div>

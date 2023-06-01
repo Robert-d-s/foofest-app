@@ -9,6 +9,7 @@ import Basket from "../components/Basket";
 import Countdown from "./Countdown";
 import styles from "@/components/BookingForm.module.css";
 import ExpirationModal from "./ExpirationModal";
+
 export default function BookingForm() {
   const { currentStep, formData, spots, expirationDate } =
     useContext(FormContext);

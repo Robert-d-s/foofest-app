@@ -67,7 +67,9 @@ const CampSelection = () => {
     }
 
     if (formData.tentData.tentRemainder > 1) {
-      errors.push("Your chosen amount of tents is too low. Please adjust your selection.");
+      errors.push(
+        "Your chosen amount of tents is too low. Please adjust your selection."
+      );
     }
 
     if (errors.length === 0) {
@@ -93,19 +95,20 @@ const CampSelection = () => {
   };
   return (
     <div className={styles.campSelection}>
-      <h2>Choose Your Camp</h2>
-      <label>
-        <div className={styles.CampDivs}>
-          {spots.map((spot) => (
-            <CampCard
-              key={spot.area}
-              spot={spot}
-              formData={formData}
-              handleCampSpotChange={handleCampSpotChange}
-            />
-          ))}
-        </div>
-      </label>
+      <h2>Choose Your Camp *</h2>
+
+      <div className={styles.CampDivs}>
+        {spots.map((spot) => (
+          <CampCard
+            key={spot.area}
+            spot={spot}
+            required
+            formData={formData}
+            handleCampSpotChange={handleCampSpotChange}
+          />
+        ))}
+      </div>
+
       <label className={styles.green}>
         <input
           type="checkbox"

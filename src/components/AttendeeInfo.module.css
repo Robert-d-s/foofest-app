@@ -1,6 +1,6 @@
 .inputField {
   height: 2.5rem;
-  width: 18rem;
+  width: 100%;
   padding: 1rem;
   border-radius: 6px;
   border: none;
@@ -12,18 +12,56 @@
 }
 
 .oneAttendee {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
+  border-left: 1px solid white;
+  padding-left: 1rem;
 }
 
 .allAttendees {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .attendeeDiv {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+@media (max-width: 800px) {
+  .inputField {
+    height: 1.5rem;
+
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .inputFieldLabel {
+    font-size: 0.8rem;
+    gap: 0.2rem;
+  }
+  .oneAttendee {
+    grid-template-columns: 1fr;
+
+    padding-left: 1rem;
+  }
+  .inputField {
+    width: 60%;
+  }
+}
+
+@media (max-width: 500px) {
+  .inputField {
+    width: 70%;
+  }
+}
+
+@media (max-width: 400px) {
+  .inputField {
+    width: 85%;
+  }
 }
