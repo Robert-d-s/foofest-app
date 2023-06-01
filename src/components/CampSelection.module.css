@@ -1,0 +1,68 @@
+.CampDivs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 2rem;
+}
+.campSelection {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.nextButton {
+  background: none;
+  border: 2px solid white;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  width: 9rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.nextButton:hover {
+  background: white;
+  border: none;
+  border: 2px solid white;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  width: 9rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.previousButton {
+  background: none;
+  border: 2px solid white;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  width: 9rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.previousButton:hover {
+  background: white;
+  border: none;
+  border: 2px solid white;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  width: 9rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.twoButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20rem;
+}
+
+.green {
+  display: flex;
+  gap: 2rem;
+  cursor: pointer;
+}
+
+.error {
+  color: rgb(250, 89, 89);
+}

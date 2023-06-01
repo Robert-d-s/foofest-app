@@ -1,0 +1,25 @@
+.buttonsDiv {
+  display: flex;
+
+  width: 6rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonsDiv button {
+  border: none;
+  padding: 0.6rem;
+}
+
+.oneTent {
+  display: flex;
+  gap: 2rem;
+}
+
+.tents {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid white;
+}
