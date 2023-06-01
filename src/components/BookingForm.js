@@ -50,9 +50,10 @@ export default function BookingForm() {
 
   return (
     <div className={styles.wrapper}>
+      {expirationDate && <Countdown />}
       {renderFormStep()}
       {formData.modal && <ExpirationModal />}
-      {expirationDate && <Countdown />}
+
       <aside className={styles.aside}>
         <div className={styles.asideDiv}>
           <div className={styles.basketDiv}>
