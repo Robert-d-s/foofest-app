@@ -34,9 +34,6 @@ import Act from "./Act";
 import styles from "./Stage.module.css";
 
 const Stage = ({ stage, days, day }) => {
-  console.log("days:", days);
-  console.log("day:", day);
-
   return (
     <div key={stage} className={styles.stage}>
       <h2 className={styles.subHeader}>{stage}</h2>

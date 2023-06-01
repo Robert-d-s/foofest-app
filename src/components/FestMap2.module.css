@@ -29,3 +29,9 @@
   opacity: 1;
   visibility: visible;
 }
+
+@media (max-width: 450px) {
+  .festmap {
+    width: 100%;
+  }
+}

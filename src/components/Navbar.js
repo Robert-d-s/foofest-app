@@ -10,8 +10,9 @@ const Navbar = () => {
         ColorFOO
       </div>
       <div className={styles.navLinks}>
-        <div onClick={() => router.push("/Schedule")}>Schedule</div>
         <div onClick={() => router.push("/About")}>About</div>
+        <div onClick={() => router.push("/Schedule")}>Schedule</div>
+        <div onClick={() => router.push("/booking")}>Tickets</div>
       </div>
     </nav>
   );

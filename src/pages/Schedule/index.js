@@ -12,7 +12,7 @@ const Schedule = () => {
   useEffect(() => {
     const fetchSchedule = async () => {
       const res = await fetch(
-        "https://hollow-glowing-gladiolus.glitch.me//schedule"
+        "https://hollow-glowing-gladiolus.glitch.me/schedule"
       );
       const data = await res.json();
       setSchedule(data);

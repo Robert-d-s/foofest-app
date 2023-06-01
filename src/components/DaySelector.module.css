@@ -22,25 +22,14 @@
   text-transform: uppercase;
   border: none;
   background: none;
-  color: white;
+  /* color: white; */
+  color: var(--clr-white);
+
   transition: 0.2s all ease-out;
   cursor: pointer;
 }
 
 :is(.btnBox) button:hover {
-  font-weight: 600;
+  font-weight: 500;
   transform: scale(1.05);
 }
-
-.btnBox button:hover::before {
-  content: "☆";
-  position: absolute;
-  left: 0;
-}
-
-/* .btnBox button.selected::before {
-  content: "☆";
-  position: absolute;
-  left: 0;
-  transition: opacity 0.2s ease-in-out;
-} */

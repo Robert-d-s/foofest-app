@@ -1,14 +1,12 @@
 /*Programme Container Main*/
 
 .programContainer {
-  border: 1px solid hotpink; /*remove this later*/
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  /* gap: 1rem; */
   padding-bottom: 2rem;
-  /* background-color: var(--clr-white); */
 }
 
 /*header Container*/
@@ -18,7 +16,7 @@
   font-family: var(--font-thicc);
   font-size: 4.209rem;
   letter-spacing: 0.2rem;
-  border: 1px solid yellow; 
+  border: 1px solid yellow;
   color: var(--clr-white);
 } */
 
@@ -27,7 +25,8 @@
   /* width: 100%; */
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: 1rem;
+  /* gap: 2rem; */
   align-items: center;
   justify-content: center;
   /* border: 1px solid pink; */
@@ -89,7 +88,7 @@
 }
 
 .actBox {
-  border: 1px solid var(--clr-hover); /*remove this later*/
+  /* border: 1px solid var(--clr-hover); */
   padding: 0.5rem 0.1rem;
 
   /* for cancelation - optional */
@@ -101,7 +100,6 @@
 /*bands and times*/
 :is(.actBox) p {
   padding-bottom: 0.1rem;
-  /* color: lightgrey; remove this later */
   font-size: 1.25rem;
 }
 
@@ -117,9 +115,53 @@
 }
 /* for cancelation - optional */
 
-/*
-To DO:
-- Filter out the break times
-- Improve the mobile view (!!!)
-  - Idea mobile view: We can see the stages, when you click on a stage, it shows a dropdown with Bands and times;
-**/
+@media (max-width: 750px) {
+  .programBox {
+    flex-direction: column;
+    padding-bottom: 2rem;
+  }
+
+  .header {
+    font-size: 4.209rem;
+  }
+
+  .subHeader {
+    text-align: center;
+  }
+
+  .stageBox {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .actBox {
+    text-align: center;
+    border-bottom: 1px solid var(--clr-white);
+  }
+  .actBox:last-child {
+    border: none;
+    padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .programBox {
+    flex-direction: column;
+    padding-bottom: 2rem;
+  }
+
+  .header {
+    font-size: 2.369rem;
+  }
+
+  .subHeader {
+    font-size: 1.777rem;
+    /* text-align: center; */
+  }
+
+  :is(.actBox) p {
+    padding-bottom: 0.2rem;
+    font-size: 1rem;
+  }
+}
