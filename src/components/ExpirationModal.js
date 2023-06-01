@@ -5,7 +5,6 @@ import { useContext } from "react";
 const ExpirationModal = () => {
   const dispatch = useContext(DispatchContext);
   const startOver = () => {
-    // console.log("start over");
     dispatch({ type: "START_OVER" });
   };
 

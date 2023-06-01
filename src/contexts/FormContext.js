@@ -29,9 +29,10 @@ const initialState = {
       },
     ],
     totalPrice: 0,
-    id: "",
-    modal: true,
+    id: null,
+    modal: false,
   },
+  expirationDate: null,
 };
 
 const formReducer = (state, action) => {
@@ -60,6 +61,12 @@ const formReducer = (state, action) => {
               },
             },
           },
+        };
+      }
+      if (section === "expirationDate") {
+        return {
+          ...state,
+          [section]: value,
         };
       }
       return {
@@ -133,7 +140,8 @@ const formReducer = (state, action) => {
     case "CALCULATE_TENT_CAPACITY":
       const { x2tents, x3tents } = state.formData.tentData;
 
-      const totalTentCapacity = x2tents.amount * x2tents.capacity + x3tents.amount * x3tents.capacity;
+      const totalTentCapacity =
+        x2tents.amount * x2tents.capacity + x3tents.amount * x3tents.capacity;
       const tentRemainder = state.formData.ticketData.ticketQuantity - totalTentCapacity;
 
       return {
@@ -145,6 +153,15 @@ const formReducer = (state, action) => {
             totalTentCapacity,
             tentRemainder,
           },
+        },
+      };
+
+    case "COUNTDOWN_EXPIRED":
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          modal: true,
         },
       };
 

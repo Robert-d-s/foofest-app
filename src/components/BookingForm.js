@@ -5,12 +5,12 @@ import CampSelection from "../components/CampSelection";
 import Personalinfo from "../components/Personalinfo";
 import CardDetails from "../components/CardDetails";
 import ThankYou from "../components/ThankYou";
+import Countdown from "./Countdown";
 import styles from "@/components/BookingForm.module.css";
 import ExpirationModal from "./ExpirationModal";
 export default function BookingForm() {
-  const { currentStep, formData, spots } = useContext(FormContext);
+  const { currentStep, formData, spots, expirationDate } = useContext(FormContext);
   const dispatch = useContext(DispatchContext);
-  const totalSteps = 5;
 
   useEffect(() => {
     fetch("https://hollow-glowing-gladiolus.glitch.me/available-spots")
@@ -52,6 +52,7 @@ export default function BookingForm() {
     <div className={styles.wrapper}>
       {renderFormStep()}
       {formData.modal && <ExpirationModal />}
+      {expirationDate && <Countdown />}
       <aside className={styles.aside}>
         <div className={styles.asideDiv}>
           <div className={styles.basketDiv}>
