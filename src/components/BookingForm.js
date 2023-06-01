@@ -11,8 +11,7 @@ import styles from "@/components/BookingForm.module.css";
 import ExpirationModal from "./ExpirationModal";
 
 export default function BookingForm() {
-  const { currentStep, formData, spots, expirationDate } =
-    useContext(FormContext);
+  const { currentStep, formData, spots, expirationDate } = useContext(FormContext);
   const dispatch = useContext(DispatchContext);
 
   useEffect(() => {

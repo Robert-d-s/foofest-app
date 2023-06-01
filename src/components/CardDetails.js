@@ -64,7 +64,6 @@ const PaymentForm = () => {
 
   const handleNext = () => {
     dispatch({ type: "NEXT_STEP" });
-    dispatch({ type: "STOP_TIMER" });
     fulfillReservation();
   };
 

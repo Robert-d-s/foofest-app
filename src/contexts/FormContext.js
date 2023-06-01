@@ -217,11 +217,6 @@ const formReducer = (state, action) => {
 
     case "START_OVER":
       return initialState;
-    case "STOP_TIMER":
-      return {
-        ...state,
-        expirationDate: null,
-      };
 
     default:
       return state;
