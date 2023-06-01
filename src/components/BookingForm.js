@@ -48,9 +48,9 @@ export default function BookingForm() {
 
   return (
     <div className={styles.wrapper}>
-      {expirationDate && <Countdown />}
+      {currentStep < 5 && expirationDate && <Countdown />}
       {renderFormStep()}
-      {formData.modal && <ExpirationModal />}
+      {currentStep < 5 && formData.modal && <ExpirationModal />}
       <Basket />
     </div>
   );

@@ -29,3 +29,9 @@
 .navLinks div {
   cursor: pointer;
 }
+
+@media (max-width: 450px) {
+  .logo {
+    font-size: 1rem;
+  }
+}
